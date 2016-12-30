@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <title>
+            Git 分支教程
+        </title>
+        <link href="" rel="stylesheet"/>
+        <!-- 定义一些全局性的 样式格式 -->
+        <style>
+            .displayh1{
+
+                color: red;
+                font-size: 35px;
+                text-align: center;
+                font-weight: bold;
+            }
+            .displayh2{
+
+                color: blue;
+                font-size: 30px;
+                text-align: center;
+                font-weight: bold;
+            }
+            .displayh3{
+
+                color: black;
+                font-size: 25px;
+                text-align: center;
+                font-weight: bold;
+            }
+            .displayp{
+
+                color: black;
+                font-size: 23px;
+                text-align: left;
+                font-weight: bold;
+            }
+            .displaytext{
+                text-align: center;
+                color: red;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            .tablestyle {
+                margin: 5px;
+                padding: 2px;
+                width: 400px;
+                height: 80px;
+                border: 1px solid black;
+                }
+            .note{
+                color:red;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="displayh1">
+            2、 Git中分支
+        </h1>
+        <div name="branch">
+            <!-- 引用在head部分定义的style 样式-->
+            <h2 class="displayh2">
+                2.1、 Git中分支管理
+            </h2>
+            <p>
+                Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。有了分支，你创建了一个属于你自己的分支，别人看不到，还继续在他自己的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。
+            </p>
+            <p>
+                Git把所有提交记录串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支默认创建的，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
+            </p>
+            <p>
+                <p class="displayp">
+                    创建与合并分支
+                </p>
+                <p>
+                    首先，我们创建dev分支，然后切换到dev分支：
+                    <br/>
+                    <b>
+                        创建分支
+                    </b>
+                    <ul>
+                        <li>
+                            git branch
+                            <pre>没有参数，显示本地版本库中所有的本地分支名称。当前检出分支的前面会有星号。</pre>
+                        </li>
+                        <li>
+                            git branch newname
+                            <pre>在当前分支上新建分支一个名叫newname的分支。</pre>
+                        </li>
+                        <li>
+                            git checkout newname
+                            <pre>即切换到名叫newname的分支</pre>
+                        </li>
+                        <li>
+                            git checkout –b newname master
+                            <pre>命令将上面两个命令功能合并：在master分支上创建新分支newname分支并切换到该分支</pre>
+                        </li>
+                    </ul>
+                    <pre>git checkout -b dev 创建dev分支并切换到dev分支</pre>
+                    git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
+                    <br/>
+                    <pre>$ git branch dev 创建dev分支</pre>
+                    <pre>$ git checkout dev 切换当前分支为dev</pre>
+                    <pre>然后用git branch 命令查看当前分支</pre>
+                    <img alt="create dev" src="img/createdev.jpg"/>
+                    <br/>
+                    git branch命令会列出所有分支，当前分支前面会标一个*号。
+                    <br/>
+                    然后，我们就可以在dev分支上正常提交，比如对readme.txt做个修改，加上一行：
+                    <b>
+                        Creating a new branch is quick.
+                    </b>
+                    然后在dev分支下进行git add ，git commit 操作提交到git仓库。
+                    <img alt="devmodify" src="img/devmodify.jpg"/>
+                    <br/>
+                    dev分支完成了工作后切换回master分支；git checkout master命令完成切换
+                    <pre style="font-weight: blod;font-size: 25px;"> git checkout master</pre>
+                    切换回master分支后，再查看一个readme.txt文件，刚才dev分支下添加的内容不见了！因为那个提交是在dev分支上，而master分支此刻的提交点并没有变还是指向上次commit提交的地方：
+                    <img alt="devmaster" src="img/devmaster.jpg"/>
+                    <br/>
+                    现在，我们把dev分支的工作成果合并到master分支,git merge命令用于将指定分支合并到当前分支。合并后，再查看readme.txt的内容，就可以看到，和dev分支的最新提交是完全一样的。注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。当然，也不是每次合并都能Fast-forward，我们后面会讲其他方式的合并。使用的命令如下图：
+                    <br/>
+                    <pre> git checkout master 切换到master分支</pre>
+                    <pre>git merge dev 合并dev分支内容到当前master分支</pre>
+                    <pre> git branch -d dev 删除dev分支( git branch -D dev 强制删除dev分支)</pre>
+                    <pre> git branch 查看当前分支</pre>
+                    <img alt="merge" src="img/merge.jpg"/>
+                </p>
+                <p>
+                    <p style="font-weight: bold;">
+                        小结
+                    </p>
+                    <pre>Git鼓励大量使用分支： </pre>
+                    <pre>查看分支：git branch</pre>
+                    <pre>创建分支：git branch name</pre>
+                    <pre>切换分支：git checkout name</pre>
+                    <pre>创建+切换分支：git checkout -b name</pre>
+                    <pre>合并name到当前分支：git merge name</pre>
+                    <pre>删除分支：git branch -d name</pre>
+                </p>
+            </p>
+        </div>
+        <div name="branchconflict">
+            <h2 class="displayh2">
+                2.2、 Git分支中的冲突
+            </h2>
+            <p>
+                <b>
+                    冲突来源：
+                </b>
+                <ul>
+                    <li>
+                        第一种情况：当本地git仓库两个分支分别对同一文件做了修改会产生冲突,两条分支对同一个文件进行了修改，当一个分支试图合并到另一个分支时，Git不能自动合并的，称之为冲突(conflict)。解决冲突需要人工处理。
+                    </li>
+                    <li>
+                        第二种冲突情况发生在远程git仓库中的A文件被小A更改并push到远程git仓库，我现在想推送到远程git仓库就不行了;因为你的小伙伴A的最新提交和你试图推送的提交有冲突解决办法: Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地git仓库合并解决冲突，再push到远程git仓储中：
+                        <p>
+                            命令执行流程：
+                            <br/>
+                            <ul>
+                                <li>
+                                    git pull
+                                </li>
+                                <li>
+                                    如果上面命令执行不下来，一般情况是新建本地分支与远程分支关联问题：git branch --set-upstream命令关联本地分支和远程分支。
+                                    <pre> git branch --set-upstream-to(--track) master origin/master</pre>
+                                </li>
+                                <li>
+                                    再次git push origin master(dev) 将本地分支下的所有更改提交到github上面
+                                </li>
+                            </ul>
+                            下图是说明了我是怎么解决这个问题的<br/>
+                            <img alt="conflict local and remote" src="img/conflictlocalandremote.jpg"/>
+                        </p>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                下面做一个实验：
+            </p>
+            <p>
+                准备新的fe分支，开始我们的新分支开发：在readme.md文件下增加一行，
+                <b>
+                    Creating a new branch fe is quick AND simple.
+                </b>
+                然后在fe分支上面提交,命令执行如下：在fe分支下完成提交到本地git仓库
+                <br/>
+                <img alt="fe" src="img/fe.jpg"/>
+            </p>
+            <p>
+                切换到master分支上面在readme.md文件后面新增一行
+                <b>
+                    Creating master branch is quick & simple
+                </b>
+                然后提交
+                <br/>
+                <img alt="master" src="img/master.jpg"/>
+            </p>
+            <p>
+                现在，master分支和fe分支各自都分别有新的提交，变成了这样：
+                <br/>
+                <img alt="feandmaster" src="img/feandmaster.png"/>
+                <br/>
+                这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突,下图显示解决方案：使用git merge 命令不能合并成功，同时通过git status命令查看冲突信息。图中命令提示可以使用 git merge --abort命令终止这个有冲突的合并，或者先解决冲突然后在提交(fix conflicts and run "git commit")
+                <br/>
+                <img alt="merge fe" src="img/mergefe.jpg"/>
+                <br/>
+                我们可以直接查看readme.md的内容：
+                <br/>
+                <img alt="readme" src="img/readmemd.jpg"/>
+                <br/>
+                Git用
+                <b style="color: red;">
+                    <<<<<<<标记冲突开始，后面跟的是当前分支中的内容。HEAD指向当前分支末梢的提交。=======之后，>>>>>>之前是要merge过来的另一条分支上的代码。>>>>>>>之后的dev是该分支的名字。对于简单的合并，手工编辑，然后去掉这些标记，最后像往常的提交一样先add再commit即可。
+                    <a href="http://www.cnblogs.com/mengdd/p/3585038.html" target="_black" title="cnblog">
+                        参考
+                    </a>
+                </b>
+                <br/>
+                标记出不同分支的内容，我们修改如下后保存：
+                <b>
+                    Creating master branch is quick and simple
+                </b>
+                再次提交
+                <br/>
+                <img alt="conflict" src="img/conflict.jpg"/>
+                <br/>
+                现在，master分支和fe分支变成了下图所示：
+                <br/>
+                <img alt="conflict merge" src="img/conflictmerge.jpg"/>
+                <br/>
+                最后删除fe分支：git branch -d fe
+            </p>
+            <p>
+                <b>
+                    小结：
+                </b>
+                当Git无法自动合并分支产生冲突时，就必须首先解决冲突。解决冲突后，再提交，合并完成。用git log --graph命令可以看到分支合并图。git log --graph --pretty=oneline --abbrev-commit查看详细合并情况
+            </p>
+        </div>
+        <div name="branchStrategy">
+            <h2 class="displayh2">
+                2.3、 Git分支管理策略
+            </h2>
+            <p>
+                通常git合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后会丢掉分支信息。也就是通过
+                <b>
+                    git log --graph --pretty=oneline --abbrev-commit
+                </b>
+                命令看不到合并的信息
+            </p>
+            <p>
+                现在我们做一个实验，创建一个dev分支并以dev分支对readme.md文件进行更改，比如加：dev merge strategy demo;修改后保存并提交再次切换回master分支合并刚才dev分支增加的内容;合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并操作流程如下图：
+                因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
+                <br/>
+                <pre><b>git merge --no-ff -m "merge with no-ff  http dev branch" dev</b> 命令用于以'recursive' strategy.策略进行合并, --no-ff参数表示禁用Fast forward</pre>
+                <br/>
+                <p style="text-align: center;">
+                    <img alt="mergestrategy" src="img/mergestrategy.jpg"/>
+                    <br/>
+                    可以看到，不使用Fast forward模式，merge后就像这样：
+                    <br/>
+                    <img alt="mergestrategy" src="img/mergestrategyurl.jpg"/>
+                </p>
+                <p>
+                    <b>
+                        分支策略:
+                    </b>
+                    <br/>
+                    在实际开发中，我们应该按照几个基本原则进行分支管理：首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。所以，团队合作的分支看起来就像这样：
+                    <br/>
+                    <img alt="dev" src="img/dev.jpg"/>
+                    <br/>
+                    <b>
+                        这一节所讲主要为了可以在git系统中留下合并分支时的痕迹，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+                    </b>
+                </p>
+            </p>
+        </div>
+        <div name="bug">
+            <h2 class="displayh2">
+                2.4、 Git bug分支（为修复Bug而创建的分支）
+            </h2>
+            <p>
+                这里问题发生的前提是你在dev分支下面开发中...，突然有一个bug需要你修复并要立即合并到master分支，但是dev分支下的任务还没完成，意味着你dev分支还不能提交，所以不能在dev分支下修复这个bug。这个时候你需要退出dev分支然后去修复这个bug。而退出现场需要做一些保存现场的工作
+            </p>
+            <p>
+                实验流程
+            </p>
+            <p>
+                Git 提供一个stash命令，保存当前分支的修改内容，包括工作区和stage区的内容。
+                <ul>
+                    <li>
+                        第一步：save现场（使用git stash命令）并切换到master分支创建一个新的分支issue-101进行修复bug
+                        <br/>
+                        <img alt="stash" src="img/stash.jpg"/>
+                        <br/>
+                        现在修复bug，需要把“Creating a new branc...”改为“Creating a new branch  is quick AND simple and update issue 28/12/2016.”，然后提交：
+                    </li>
+                    <br/>
+                    <li>
+                        第二步：修复bug,修复完成后，提交。
+                        <br/>
+                        <img alt="fixbug" src="img/fixbug.jpg"/>
+                    </li>
+                    <br/>
+                    <li>
+                        第三步：切换到master分支，并和master分支完成合并，最后删除issue-101分支
+                        <br/>
+                        <img alt="checkout master" src="img/checkoutmaster.jpg"/>
+                    </li>
+                    <br/>
+                    <li>
+                        第四步：完成了bug的修复，并和master分支合并后;就可以恢复原来的dev分支了。进行进一步的开发。恢复现场
+                        <br/>
+                        <img alt="back dev" src="img/backdev.jpg"/>
+                        <br/>
+                        恢复现场使用的是git stash pop ，恢复的同时把stash内容也删了。
+                        git stash apply命令进行恢复现场还需要 git stash drop来删除stash list中记录的stash记录
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <div id="feature">
+            <h2 class="displayh2">
+                2.5、 Git feature分支（为未来功能而创建的分支）
+            </h2>
+            <p>
+                软件需要添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。
+            </p>
+            <p>
+                假如你终于接到了一个新任务：开发代号为Spider的新功能，该功能计划用于下一代爬虫系统。
+            </p>
+            <p>
+                那么你现在开始工作，流程如下：dev分支下新建一个Spider分支，进行开发，切换回dev分支，准备合并到dev分支以进行测试
+            </p>
+            <ul>
+                <li>
+                    <b>
+                        第一步:
+                    </b>
+                    在dev分支下面新建Spider分支并切换到Spider分支；
+                    <br/>
+                    <img alt="spider create" src="img/spidercreate.jpg"/>
+                </li>
+                <br/>
+                <li>
+                    <b>
+                        第二步：
+                    </b>
+                    在Spider分支下面开发，新建Spider.py文件进行编码，
+                    <img alt="spider" src="img/spider.jpg"/>
+                </li>
+                <br/>
+                <li>
+                    <b>
+                        第三步：
+                    </b>
+                    对刚才编码的文件提交到git仓库中。
+                    <br/>
+                    <img alt="spider add commit" src="img/spideraddcommit.jpg"/>
+                </li>
+                <br/>
+                <li>
+                    <b>
+                        第四步：
+                    </b>
+                    回到dev分支对spider分支内容合并到dev分支中，可以看到回到dev分支后原来目录下面的spider.py文件不见了。
+                    <br/>
+                    <img alt="spider not show" src="img/spidernotshow.jpg">
+                    </img>
+                </li>
+                <br/>
+                <li>
+                    <b>
+                        第五步：
+                    </b>
+                    就是这节所要讲的内容，就是我对Spider分支的功能不要了，我强制删除Spider分支
+                    <br/>
+                    <pre>git branch -D Spider</pre>
+                    <img alt="spider delete" src="img/spiderd.jpg"/>
+                    <br/>
+                    如果这个新功能获得了市场热烈的反馈，那么一切顺利的话，feature分支和bug分支流程是类似的，先合并到dev分支在合并到master分支，然后删除feature分支。
+                </li>
+            </ul>
+        </div>
+        <div id="coporation">
+            <h2 class="displayh2">
+                2.5、 Git 协作功能
+            </h2>
+            <p>
+                当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应关联起来了，并且远程仓库的默认名称是origin。要查看远程库的信息，用git remote：或者用git remote -v 获取更详细的信息。下图显示执行两个命令的不同
+                <br/>
+                <img alt="remote" src="img/remote.jpg"/>
+            </p>
+            <p class="displayp">
+                推送分支
+            </p>
+            <p>
+                推送分支就是将本地的git仓库上面的一个分支推送到远程git仓库(比如github)上面，推送时，要指定本地分支，这样，Git就会把该本地分支推送到远程库对应的远程分支上：
+                <pre>git push origin master 将本地master分支推送到远程git仓库</pre>
+                <pre>git push origin dev 将本地dev分支推送到远程git仓库并在远程git仓库创建dev分支</pre>
+                将一个dev分支修改的文件推送到github上面
+                <br/>
+                <img alt="" src="img/pushdev.jpg"/>
+                <br/>
+                这个时候github上面的master分支和dev分支就不一样了，github提示是否合并，这个时候我是在本地完成了dev分支合并到master分支并推送到github。
+                <img alt="dev merge master" src="img/devmergemaster.jpg"/>
+                <p>
+                    但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？
+                    <ul>
+                        <li>
+                            master分支是主分支，因此要时刻与远程同步；
+                        </li>
+                        <li>
+                            dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+                        </li>
+                        <li>
+                            bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
+                        </li>
+                        <li>
+                            feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
+                        </li>
+                    </ul>
+                    总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！
+                </p>
+            </p>
+            <p class="displayp">
+                抓取分支
+            </p>
+            <p>
+                多人协作时，大家都会往远程git仓库master和dev分支上推送各自的修改，假如模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆来模拟：通过
+                <pre>git clone git@github.com:JKAK47/cloneDemo.git</pre>
+                命令来获取到这个远程的git仓库，但是这种情况下你只能获取到远程git仓库的master分支。不能获取到其他分支。可以通过
+                <b style="color: red;">
+                    git branch -a
+                </b>
+                命令可知本地分支有那些。
+                <br/>
+                假如你的小伙伴要在dev分支上开发，就必须clone到远程origin的dev分支到本地，于是可以用下面这个命令checkout远程的dev分支到本地并起名为dev分支，并切换到本地的dev分支:
+                <pre>git checkout -b dev origin/dev</pre>
+                <p style="color: red;">
+                    发生错误
+                fatal: Cannot update paths and switch to branch 'dev' at the same time.
+Did you intend to checkout 'origin/dev' which can not be resolved as commit?
+                    <br/>
+                    解决办法是：
+                    <pre>git fetch origin</pre>
+                    <pre> git checkout --track origin/dev</pre>
+                    <br/>
+                    <b>
+                        参考链接
+                    </b>
+                    <a href="http://stackoverflow.com/questions/17137441/can-not-create-a-local-and-remote-branch-tracking-at-the-same-time" target="_black" title="StackOverflow">
+                        StackOverflow
+                    </a>
+                    <br/>
+                    <a href="http://stackoverflow.com/questions/10002239/difference-between-git-checkout-track-origin-branch-and-git-checkout-b-branch" target="_black" title="StackOverflow">
+                        Difference between git checkout --track origin/branch and git checkout -b branch origin/branch
+                    </a>
+                    <br/>
+                    下图记录了错误解决过程
+                    <br/>
+                    <img alt="pull dev error" src="img/pulldeverror.jpg"/>
+                    <br/>
+                    关于这两个命令的不同
+                    <pre>  git checkout -b mybranch origin/abranch will create mybranch and track origin/abranch</pre>
+                    <pre>git checkout --track origin/abranch will only create 'abranch', not a branch with a different name.</pre>
+                </p>
+                <p>
+                    然后你的小伙伴就可以在dev分支上面做修改，然后push到远程git仓库。第一次推送过程中他提示你填写你的github账户名和登入密码
+                    <pre>git push origin dev 推送当前的dev分支到github 的远程git仓库</pre>
+                    <pre>Username for 'https://github.com': 填入账户名</pre>
+                    <pre>另外弹框输入对应账户登入密码</pre>
+                    <img alt="other push" src="img/otherpush.jpg"/>
+                    <br/>
+                    <b>
+                        可以看到小伙伴A(在https目录下)对dev分支进行了多个层次的修改然后推送到origin/dev分支下面
+                    </b>
+                    <br/>
+                    <img alt="http dev" src="img/httpdev.jpg"/>
+                    <p>
+                        假如现在在ssh目录下工作的小伙伴B也有更新的请求，请求更新到dev分支下面。因为小伙伴A也对readme.md文件进行了修改并push到github下origin/dev分支，小伙伴B对readme.md文件也进行了更改。这个时候如果小伙伴B也进行push操作的话不会成功。
+                        <br/>
+                        <img alt="ssh dev" src="img/sshdev.jpg"/>
+                        <br/>
+                        <p style="font-weight: bold; font-size: 25px">
+                            推送失败，因为你的小伙伴A的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送：
+                            <br/>
+                            git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接;使用下面命令
+                            <br/>
+                            <pre>git branch --set-upstream dev origin/dev</pre>
+                            <p style="font-weight: bold; font-size: 25px">
+                                再次git pull 就成功了，然后git push origin dev 成功push到github上面
+                            </p>
+                        </p>
+                        <img alt="" src="img/ssh.jpg"/>
+                    </p>
+                </p>
+                <p>
+                    因此多人协作的工作模式通常是这样：
+                    <ul>
+                        <li>
+                            首先，可以试图用git push origin branch-name推送自己的修改；
+                        </li>
+                        <li>
+                            如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+                        </li>
+                        <li>
+                            如果合并有冲突，则解决冲突，并在本地提交；
+                        </li>
+                        <li>
+                            没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+                        </li>
+                    </ul>
+                    如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。这就是多人协作的工作模式，一旦熟悉了，就非常简单
+                </p>
+                <p>
+                    小结：
+                    <ul>
+                        <li>
+                            查看远程库信息，使用git remote -v；
+                        </li>
+                        <li>
+                            本地新建的分支如果不推送到远程，对其他人就是不可见的；
+                        </li>
+                        <li>
+                            从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+                        </li>
+                        <li>
+                            在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+                        </li>
+                        <li>
+                            建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+                        </li>
+                        <li>
+                            从远程抓取分支，使用git pull，如果有冲突，要先处理冲突
+                        </li>
+                    </ul>
+                </p>
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<!-- HTML 5文档类型声明-->
+<html>
+    <!-- <html>标签定义html文档，HTML 文档由嵌套的 HTML 元素构成。-->
+    <!--
+        HTML 元素指的是从开始标签（start tag）,标签内容，结束标签（end tag）三部分构成的所有代码构成了一个完整的标签元素。
+        HTML 元素以开始标签起始
+        HTML 元素以结束标签终止
+        元素的内容是开始标签与结束标签之间的内容
+        某些 HTML 元素具有空内容（empty content），没有内容的 HTML 元素被称为空元素。空元素是在开始标签中关闭的。
+        如这些标签：<hr />
+        空元素在开始标签中进行关闭（以开始标签的结束而结束）
+        大多数 HTML 元素可拥有属性
+    -->
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <title>
+            Html Demo
+            <!-- 显示在浏览器上面标题栏-->
+        </title>
+        <!-- 使用 <meta> 元素来描述文档。-->
+        <meta content="Vincent" name="author"/>
+        <meta content="David Yang,8/1/07" name="revised"/>
+        <meta content="Sublime3" name="generator"/>
+        <!-- 使用meta元素来描述 文档关键词-->
+        <meta content="HTML examples" name="description"/>
+        <meta content="HTML, DHTML, CSS, XML, XHTML, JavaScript, VBScript" name="keywords"/>
+        <base href="file:///C:/Users/Administrator/Desktop/html/" target="_blank"/>
+        <!-- 使得所有连接目标都在新的标签打开-->
+        <!-- 定义一个本文档全局性的样式
+        float 属性定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。浮动元素会生成一个块级框，而不论它本身是何种元素。
+         在文档内部定义本文档html元素的样式表 -->
+        <style>
+            .city {
+                float: left;
+                margin: 5px;
+                padding: 10px;
+                width: 430px;
+                height: 300px;
+                border: 1px solid black;
+                }
+            .cities {
+                float: left;
+                background-color:black;
+                color:yellow;
+                margin:5px;
+                width: 405px;
+                height: 300px;
+                 padding:20px;
+                border: 2px solid red;
+                }
+            .red{
+                color: red;
+                text-align: left;
+                font-size: 35px;
+                font-weight: bold;
+            }
+
+            table.lamp {
+            width:100%;
+            border:2px solid #d4d4d4;
+            border-color: red
+            }
+            table.lamp th, td {
+                 padding:2px;
+            }
+            table.lamp th {
+             width:40px;
+            }
+        </style>
+    </head>
+    <!-- <body> 与 </body> 之间的文本是浏览器显示区域可见的页面内容, 也是文档主体内容-->
+    <!-- background-color 属性为元素定义了背景颜色,淘汰原来的bgcolor属性
+        background 属性定义显示区域背景图片，gif和jpg都可以，如果图片不够就重复
+        gif 和 jpg 文件均可用作 HTML 背景
+        #d0d0d0
+        http://www.w3school.com.cn/i/eg_bg_06.gif
+        http://www.w3school.com.cn/i/eg_background.jpg
+        背景（Backgrounds）
+        <body> 拥有两个配置背景的标签。背景可以是颜色或者图像。
+        背景颜色（Bgcolor）
+        背景颜色属性将背景设置为某种颜色。属性值可以是十六进制数、RGB 值或颜色名。
+        <body bgcolor="#000000">
+        <body bgcolor="rgb(0,0,0)">
+        <body bgcolor="black">
+        以上的代码均将背景颜色设置为黑色。
+        背景（Background）
+        背景属性将背景设置为图像。属性值为图像的URL。如果图像尺寸小于浏览器窗口，那么图像将在整个浏览器窗口进行复制
+        新版html标准推荐使用层叠样式表（CSS）来定义 HTML 元素的布局和显示属性
+    -->
+    <body background="http://www.w3school.com.cn/i/eg_bg_06.gif" text="Vincent">
+        <!-- <h1> 与 </h1> 之间的文本被显示为标题，有<h1> 到 <h6>六个标题形式
+                浏览器会自动地在标题的前后添加空行。
+                默认情况下，HTML 会自动地在块级元素前后添加一个额外的空行，比如段落、标题元素这些块级元素
+        -->
+        <h1 style="text-align: center;">
+            六种标题示例
+        </h1>
+        <h1 align="center">
+            This is most big Title
+        </h1>
+        <h2 style="font-family: verdana; color:red;text-align: center;">
+            <p>
+                <a href="#six" style="text-decoration: none;" title="two">
+                    two
+                    <!-- 链接到同一页面的其他位置，通过#BO这个锚点 -->
+                </a>
+            </p>
+        </h2>
+        <!-- hr标签定义一个水平线，<hr /> 标签在 HTML 页面中创建水平线。 -->
+        <!--
+                style 是定义html元素样式的首选属性，
+        font-family、color 以及 font-size 属性分别定义元素中文本的字体系列、颜色和字体尺寸
+                    淘汰了旧的 <font>标签
+                <p><font size="5" face="arial" color="red">A paragraph.</font></p>
+        -->
+        <h3 style="font-family: times; color: green;font-size: 50px;text-align: center;">
+            three
+        </h3>
+        <h4 style="text-align: center;font-size: 60px">
+            four
+        </h4>
+        <!-- text-align 属性规定了元素中文本的水平对齐方式,淘汰了
+        原来的align属性 -->
+        <h5 style="text-align: center;text-align: center;">
+            five
+        </h5>
+        <h6 style="text-align: center;">
+            <a id="six" name="six">
+                six
+            </a>
+        </h6>
+        <!-- <p> 与 </p> 之间的文本被显示为段落,浏览器会自动地在段落的前后添加空行-->
+        <h1 style="text-align: center;">
+            ldfjds
+        </h1>
+        <hr/>
+        <!-- br元素在文档中产生一个横线-->
+        <h1 style="text-align: center;">
+            span 元素,使用 span来组合行内元素，以便通过元素父类样式来格式化它们
+        </h1>
+        <p class="tip">
+            <!-- <br /> 元素是一个空的 HTML 元素,功能是人为产生一个换行符，插入单行。由于关闭标签没有任何意义，因此它没有结束标签
+                        使用 span 元素，然后对这个 span 元素的父元素，即 p 元素应用 class，这样就可以对这个类的子元素 span 应用相应的样式了
+            -->
+            <span class="red">
+                cindy
+            </span>
+            <br/>
+            <span class="red">
+                广工
+            </span>
+        </p>
+        <hr/>
+        <h1 style="text-align: center;text-align: center;">
+            anchor锚的使用
+        </h1>
+        <p style="text-align: center;">
+            <a href="#anchor">
+                跳转到锚,锚在插入图片实例下面
+            </a>
+        </p>
+        <hr/>
+        <h1 style="text-align: center;">
+            p元素不能显示换行和空格字符
+        </h1>
+        <p>
+            <!-- 对于 HTML，<p>标签表示的是一行，您无法通过在 HTML 代码中添加额外的空格或换行来改变输出的效果，最终浏览器解释执行html文档时候会把所有的空格和换行符都去掉，
+                当显示页面时，浏览器会移除源代码中多余的空格和空行。所有连续的空格或空行都会被算作一个空格。需要注意的是，HTML 代码中的所有连续的空行（换行）也被显示为一个空格
+                        这个例子演示了一些 HTML 格式化方面的问题
+                如下-->
+            春眠不觉晓，
+                处处闻啼鸟。
+                夜来风雨声，
+                花落知多少。
+        </p>
+        <p class="note">
+            <span>
+                注释：
+            </span>
+            浏览器会自动地在标题的前后添加空行。
+        </p>
+        <hr/>
+        <h1>
+            超链接可以是一个字，一个词，或者一组词，也可以是一幅图像，您可以点击这些内容来跳转到新的文档或者当前文档中的某个部分。href 属性规定链接的目标
+        </h1>
+        <p>
+            是一个指向万维网上的页面的链接
+            <a href="http://www.w3school.com.cn" target="_blank" title="W3c">
+                <!-- Target 属性，你可以定义被链接的文档在何处显示 _blank 表示在新的标签页打开-->
+                This is W3school
+            </a>
+        </p>
+        <p>
+            <a href="http://www.baidu.com" style="text-decoration:none" title="没有下划线的链接">
+                百度
+            </a>
+        </p>
+        <p>
+            是一个指向本文档目录中的另一个页面的链接
+            <a href="index.html" title="index">
+                index.html
+            </a>
+        </p>
+        <p>
+            图片链接：
+            <a href="http://www.qq.com">
+                <img border="0" height="120" src="C:\Users\Public\Pictures\Sample Pictures\Chrysanthemum.jpg" width="300"/>
+            </a>
+        </p>
+        <hr/>
+        <h1 style="text-align: center;font-size: 30px">
+            插入图片示例
+        </h1>
+        <p>
+            <a id="anchor" name="anchor" title="接受锚">
+                接受锚
+            </a>
+        </p>
+        <p>
+            插入一个jpg图片
+            <img height="120" src="C:\Users\Public\Pictures\Sample Pictures\Desert.jpg" width="300"/>
+        </p>
+        <p>
+            <!-- alt 属性是一个必需的属性，它规定在图像无法显示时,显示的替代文本-->
+            插入一个gif图片
+            <img alt="美女动图" src="200.gif"/>
+        </p>
+        <p>
+            来自 W3School.com.cn 的图像：
+            <img src="http://www.w3school.com.cn/i/w3school_logo_white.gif"/>
+        </p>
+        <h2>
+            未设置对齐方式的图像：
+        </h2>
+        <p>
+            图像
+            <!--URL http://www.w3school.com.cn/i/eg_cute.gif -->
+            <img alt="憔悴" src="http://www.w3school.com.cn/i/eg_cute.gif"/>
+            在文本中
+        </p>
+        <h2>
+            已设置对齐方式的图像：
+        </h2>
+        <p>
+            图像
+            <img align="bottom" alt="憔悴" src="http://www.w3school.com.cn/i/eg_cute.gif"/>
+            在文本中
+        </p>
+        <p>
+            图像
+            <img align="middle" alt="憔悴" src="http://www.w3school.com.cn/i/eg_cute.gif"/>
+            在文本中
+        </p>
+        <p>
+            图像
+            <img align="top" alt="憔悴" src="http://www.w3school.com.cn/i/eg_cute.gif"/>
+            在文本中
+        </p>
+        <p>
+            请注意，bottom 对齐方式是默认的对齐方式。
+        </p>
+        <p>
+            <img align="left" src="http://www.w3school.com.cn/i/eg_cute.gif">
+                带有图像的一个段落。图像的 align 属性设置为 "left"。图像将浮动到文本的左侧。
+            </img>
+        </p>
+        <p>
+            <img align="right" src="http://www.w3school.com.cn/i/eg_cute.gif">
+                带有图像的一个段落。图像的 align 属性设置为 "right"。图像将浮动到文本的右侧。
+            </img>
+        </p>
+        <img height="50" src="http://www.w3school.com.cn/i/eg_mouse.jpg" width="50"/>
+        <br/>
+        <img height="100" src="http://www.w3school.com.cn/i/eg_mouse.jpg" width="100"/>
+        <br/>
+        <img height="200" src="http://www.w3school.com.cn/i/eg_mouse.jpg" width="200"/>
+        <p>
+            通过改变 img 标签的 "height" 和 "width" 属性的值，您可以放大或缩小图像。
+        </p>
+        <p>
+            创建图像映射，图像映射区域指得是可点击区域的图像
+        </p>
+        <img alt="Planets" border="0" src="http://www.w3school.com.cn/i/eg_planets.jpg" usemap="#planetmap"/>
+        <!-- usemap属性使用 下面定义的map元素
+                <area> 标签定义图像映射区域（注：图像映射区域指得是可点击区域）。
+                            area 元素总是嵌套在 <map> 标签中，href属性表示单击了可点击区域后返回的下一张图片。
+                            注释：<img> 标签中的 usemap 属性与 map 元素 name 属性相关联，创建图像与映射之间的联系。
+                            coords :定义可点击区域（对鼠标敏感的区域）的坐标
+                            href:定义此区域的目标 URL。
+                            shape: 定义这个区域的形状 default，rect，circ，poly
+                    target: 表示在哪里打开 href 属性指定的目标 URL；_blank新标签页，后面都是在原来标签页 _parent ，_self，_top
+                -->
+        <map id="planetmap" name="planetmap">
+            <area alt="Mercury" coords="0,0,25" href="http://www.w3school.com.cn/example/html/mercur.html" shape="circle" target="_blank">
+            </area>
+            <area alt="Venus" coords="30,30,15" href="http://www.w3school.com.cn/example/html/venus.html" shape="circle" target="_blank">
+            </area>
+            <area alt="Sun" coords="80,80,210,360" href="http://www.w3school.com.cn/example/html/sun.html" shape="rect" target="_top">
+            </area>
+        </map>
+        <p>
+            <b>
+                注释：
+            </b>
+            img 元素中的 "usemap" 属性引用 map 元素中的 "id" 或 "name" 属性（根据浏览器），所以我们同时向 map 元素添加了 "id" 和 "name" 属性。
+        </p>
+        <p>
+            请把鼠标移动到图像上，看一下状态栏的坐标如何变化。
+                    把图像转换为图像映射
+        </p>
+        <a href="http://www.w3school.com.cn/example/html/html_ismap.html">
+            <img ismap="" src="http://www.w3school.com.cn/i/eg_planets.jpg"/>
+        </a>
+        <hr/>
+        <!-- Html 格式化实例，斜体，加粗，big,small,sub定义下标，sup定义上标 -->
+        <h1 style="text-align: center;">
+            html文档格式化 斜体
+            <i>
+                ，加粗
+                <b>
+                    ，big,small,sub
+                </b>
+            </i>
+        </h1>
+        <p>
+            <!-- 定义了一个锚点，可以理解为一个标记，同页面的内容要跳转到这里只需要引用这个锚点就可以-->
+            <a id="BO" name="BO">
+            </a>
+            <b>
+                This text is bold
+            </b>
+            <!-- 加粗-->
+        </p>
+        <strong>
+            This text is strong
+            <!-- 加粗-->
+        </strong>
+        <br/>
+        <big>
+            This text is big
+        </big>
+        <br/>
+        <em>
+            This text is emphasized
+        </em>
+        <br/>
+        <i>
+            <!--斜体-->
+            This text is italic
+        </i>
+        <br/>
+        <small>
+            This text is samall
+        </small>
+        <sup>
+            上标字
+        </sup>
+        <br/>
+        <big>
+            This text contains
+        </big>
+        <sub>
+            下标字
+        </sub>
+        <br/>
+        <hr/>
+        <h1 style="text-align: center;">
+            pre标签可以保存原来文本的格式
+        </h1>
+        <pre>
+                            这是pre标签，pre标签是预格式文本标签，这里可以保留空格和换行符
+                    one
+                    two
+                    常用于显示计算机代码
+                    for(int i=0; i<10; i++){
+                    System.out.print(i);
+                    }
+                </pre>
+        <hr/>
+        <h1 style="text-align: center;">
+            几种格式化输出示例
+        </h1>
+        <p>
+            <b>
+                注释：
+            </b>
+            下面这些标签用于向屏幕输出信息的标签几个元素实例
+        </p>
+        <code>
+            用于输出代码 Computer code；var person = {firstName:"Bill", lastName:"Gats", age:50}
+                code 元素不保留多余的空格和折行,解决办法是先用pre标签包裹代码
+        </code>
+        <code>
+            <pre>
+                    var person = {
+                        firstName:"Bill",
+                        lastName:"Gates",
+                        age:50,
+                        eyeColor:"blue"
+                    }
+            </pre>
+        </code>
+        <br/>
+        <kbd>
+            kbd 元素定义键盘输入：Keyboard input
+        </kbd>
+        <br/>
+        <tt>
+            Teletype text
+        </tt>
+        <br/>
+        <samp>
+            samp 元素表示计算机输出示例：Sample text
+        </samp>
+        <br/>
+        <var>
+            Computer variable
+        </var>
+        <p>
+            <var>
+                E
+            </var>
+            =
+            <var>
+                m
+            </var>
+            <var>
+                c
+            </var>
+            <sup>
+                2
+            </sup>
+        </p>
+        <p>
+            <var>
+                H
+                <sub>
+                    2
+                </sub>
+                O
+            </var>
+        </p>
+        <hr/>
+        <h1 style="text-align: center;">
+            html中输出一个地址信息
+        </h1>
+        <address>
+            Written by
+            <a href="mailto:1557862201@qq.com">
+                MailQQ
+            </a>
+            <br/>
+            Visit us at:
+            <br/>
+            Example.com
+            <br/>
+            Box 564, Disneyland
+            <br/>
+            USA
+        </address>
+        <hr/>
+        <h1 style="text-align: center;">
+            对文本缩写，首字母缩写进行解释方面的应用，使用abbr标签元素定义缩写或首字母缩略语，然后title属性解释
+        </h1>
+        <p>
+            <dfn>
+                <!-- <dfn> 元素包含具有标题的 <abbr> 元素，则 title 定义提示信息,下面还有第二种形式 -->
+                <abbr title="World Health Organization">
+                    WHO
+                </abbr>
+            </dfn>
+            成立于 1948 年。
+        </p>
+        <p>
+            <dfn title="World Health Organization">
+                WHO
+            </dfn>
+            成立于 1948 年。
+        </p>
+        <abbr title="etcetera">
+            etc.
+        </abbr>
+        <br/>
+        <acronym title="World Wide Web">
+            WWW
+        </acronym>
+        <p>
+            在某些浏览器中，当您把鼠标移至缩略词语上时，title 可用于展示表达的完整版本。
+        </p>
+        <p>
+            仅对于 IE 5 中的 acronym 元素有效。
+        </p>
+        <p>
+            对于 Netscape 6.2 中的 abbr 和 acronym 元素都有效。
+        </p>
+        <p>
+            <cite>
+                <!-- <cite> 元素定义著作的标题,通常是斜体表示-->
+                The Java Programing
+            </cite>
+            by Edward Munch. Painted in 1893.
+        </p>
+        <p>
+            如果您的浏览器支持 bi-directional override (bdo 双向覆盖，定义文本方向)，下一行会从右向左输出 (rtl)；
+                    对文本Here is some Hebrew text反向输出
+        </p>
+        <bdo dir="rtl">
+            <!-- bdo 元素用于定义文本方向 -->
+            Here is some Hebrew text
+        </bdo>
+        <hr/>
+        <h1 style="text-align: center;">
+            演示如何实现长短不一的引用语，下面是长的引用：使用blockquote标签，对于长引用通常有缩进处理
+        </h1>
+        <blockquote>
+            定义从其他来源引用的节。这是长的引用。这是长的引用。这是长的引用。这是长的引用。
+        </blockquote>
+        <p>
+            这是短的引用：用q标签，用双引号包裹
+            <q>
+                q标签，定义短的行内引用。
+            </q>
+        </p>
+        <p>
+            使用 blockquote 元素的话，浏览器会插入换行和外边距，而 q 元素除了加双引号，不会有任何特殊的呈现。
+        </p>
+        <hr/>
+        <h1 style="text-align: center;">
+            标记删除文本和插入文本的标签 del和ins
+        </h1>
+        <p>
+            一打有
+            <del>
+                二十
+            </del>
+            <ins>
+                十二
+            </ins>
+            件。
+        </p>
+        <p>
+            大多数浏览器会改写为删除文本和下划线文本。
+        </p>
+        <p>
+            一些老式的浏览器会把删除文本和下划线文本显示为普通文本。
+        </p>
+        <hr/>
+        <h1 style="text-align: center;">
+            Html CSS 样式表
+        </h1>
+        <p>
+            HTML4.0，所有的格式化代码均可移出 HTML 文档，然后移入一个独立的样式表
+        </p>
+        <!--
+        外部样式表
+        使用添加到 <head> 部分的样式信息对 HTML 进行格式化，是内部样式表形式
+        内联样式
+        当特殊的样式需要应用到个别元素时，就可以使用内联样式。 使用内联样式的方法是在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性。以下实例显示出如何改变段落的颜色和左外边距。
+        -->
+        <p style="color: red; margin-left: 30px">
+            style="color: red; margin-left: 20px": This is a paragraph
+        </p>
+        <hr/>
+        <h1 style="text-align: center;font-size: 30px;color: green">
+            表格案例
+        </h1>
+        <p>
+            一个表格由 table 标签开始。
+        </p>
+        <p>
+            表格下的一个表格行由 tr 标签开始。
+        </p>
+        <p>
+            每列表格数据由 td 标签开始。
+        </p>
+        <p>
+            表格的表头由th标签开始
+        </p>
+        <h4>
+            一列：
+        </h4>
+        <table border="1">
+            <tr>
+                <td>
+                    100
+                </td>
+            </tr>
+        </table>
+        <h4>
+            一行三列：
+        </h4>
+        <table border="1">
+            <tr>
+                <td>
+                    100
+                </td>
+                <td>
+                    200
+                </td>
+                <td>
+                    300
+                </td>
+            </tr>
+        </table>
+        <h4>
+            三行三列：
+        </h4>
+        <table border="1">
+            <tr>
+                <td>
+                    数量
+                </td>
+                <td>
+                    人数
+                </td>
+                <td>
+                    总数
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    100
+                </td>
+                <td>
+                    200
+                </td>
+                <td>
+                    300
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    400
+                </td>
+                <td>
+                    500
+                </td>
+                <td>
+                    600
+                </td>
+            </tr>
+        </table>
+        <p style="text-align: center;">
+            表格布局
+        </p>
+        <table class="lamp">
+            <tr>
+                第一行
+            </tr>
+            <tr>
+                <th>
+                    <img alt="Note" src="http://www.w3school.com.cn/i/eg_cute.gif" style="height:32px;width:32px"/>
+                </th>
+                <td>
+                    表格元素使用css属性定义表格外观
+                </td>
+                <td>
+                    第二列
+                </td>
+            </tr>
+        </table>
+        <hr/>
+        <h1 style="text-align: center;font-size: 35px">
+            列表示例
+        </h1>
+        <h4>
+            一个无序列表：
+        </h4>
+        <ul>
+            <li>
+                咖啡
+            </li>
+            <li>
+                茶
+            </li>
+            <li>
+                牛奶
+            </li>
+        </ul>
+        <h4>
+            Disc 项目符号列表：
+        </h4>
+        <ul type="disc">
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ul>
+        <h4>
+            Circle 项目符号列表：
+        </h4>
+        <ul type="circle">
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ul>
+        <h4>
+            Square 项目符号列表：
+        </h4>
+        <ul type="square">
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ul>
+        <h4>
+            一个嵌套无序列表：
+        </h4>
+        <ul type="square">
+            <li>
+                咖啡
+            </li>
+            <li>
+                茶
+                <ul type="disc">
+                    <li>
+                        红茶
+                    </li>
+                    <li>
+                        绿茶
+                    </li>
+                </ul>
+            </li>
+            <li>
+                牛奶
+            </li>
+        </ul>
+        <h4>
+            一个三层嵌套无序列表：
+        </h4>
+        <ul type="square">
+            <li>
+                咖啡
+            </li>
+            <li>
+                茶
+                <ul type="disc">
+                    <li>
+                        红茶
+                    </li>
+                    <li>
+                        绿茶
+                        <ul type="circle">
+                            <li>
+                                中国茶
+                            </li>
+                            <li>
+                                非洲茶
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                牛奶
+            </li>
+        </ul>
+        <h4>
+            一个有序列表
+        </h4>
+        <ol>
+            <li>
+                咖啡
+            </li>
+            <li>
+                牛奶
+            </li>
+            <li>
+                茶
+            </li>
+        </ol>
+        <ol start="50">
+            <li>
+                咖啡
+            </li>
+            <li>
+                牛奶
+            </li>
+            <li>
+                茶
+            </li>
+        </ol>
+        <h4>
+            一个嵌套的有序列表
+        </h4>
+        <
+        <ol type="0">
+            <li>
+                咖啡
+            </li>
+            <li>
+                牛奶
+            </li>
+            <li>
+                茶
+                <ol>
+                    <li>
+                        红茶
+                    </li>
+                    <li>
+                        绿茶
+                    </li>
+                    <li>
+                        铁观音
+                    </li>
+                    <li>
+                        普洱
+                    </li>
+                </ol>
+            </li>
+            <li>
+                丹麦曲奇
+            </li>
+        </ol>
+        <h4>
+            数字列表：
+        </h4>
+        <ol>
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ol>
+        <h4>
+            字母列表：
+        </h4>
+        <ol type="A">
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ol>
+        <h4>
+            小写字母列表：
+        </h4>
+        <ol type="a">
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ol>
+        <h4>
+            罗马字母列表：
+        </h4>
+        <ol type="I">
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ol>
+        <h4>
+            小写罗马字母列表：
+        </h4>
+        <ol type="i">
+            <li>
+                苹果
+            </li>
+            <li>
+                香蕉
+            </li>
+            <li>
+                柠檬
+            </li>
+            <li>
+                桔子
+            </li>
+        </ol>
+        <h4>
+            自定义列表
+        </h4>
+        <dl>
+            <dt>
+                Coffee
+            </dt>
+            <dd>
+                Black hot drink
+            </dd>
+            <dt>
+                Milk
+            </dt>
+            <dd>
+                White cold drink
+            </dd>
+        </dl>
+        <hr/>
+        <h1 style="text-align: center;">
+            HTML div 和 span 元素
+        </h1>
+        <!--
+        HTML 块元素
+        大多数 HTML 元素被定义为块级元素或内联元素。
+        编者注：“块级元素”译为 block level element，“内联元素”译为 inline element。
+        块级元素在浏览器显示时，通常会以新行来开始（和结束）。
+        例子：<h1>, <p>, <ul>, <table>
+        HTML <div> 元素是块级元素，它是可用于组合其他 HTML 元素的容器。
+        <div> 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示一个空行。
+        如果与 CSS 一同使用，<div> 元素可用于对大的内容块设置样式属性。
+        HTML 内联元素
+        内联元素在显示时通常不会以新行开始。
+        例子：<b>, <td>, <a>, <img>
+        HTML <span> 元素是内联元素，可用作文本的容器。
+        <span> 元素也没有特定的含义。
+        当与 CSS 一同使用时，<span> 元素可用于为部分文本设置样式属性。
+        -->
+        <h4 style="text-align: center;">
+            举例看是否块级元素前后都有空行
+        </h4>
+        >
+        <h1 style="text-align: center;">
+            H1
+        </h1>
+        <h2 style="text-align: center;">
+            H2
+        </h2>
+        <p style="text-align: center;">
+            P3
+        </p>
+        <p style="text-align: center;">
+            <b>
+                P4
+            </b>
+        </p>
+        <h4 style="text-align: center;">
+            div 元素是对大的内容块作为一个整体（类），可以对整体设置样式属性
+        </h4>
+        <div class="cities">
+            <h2>
+                London
+            </h2>
+            <p>
+                London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
+            </p>
+            <p>
+                Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.
+            </p>
+        </div>
+        <div class="cities">
+            <h2>
+                Paris
+            </h2>
+            <p>
+                Paris is the capital and most populous city of France.
+            </p>
+            <p>
+                Situated on the Seine River, it is at the heart of the e-de-France region, also known as the r間ion parisienne.
+            </p>
+            <p>
+                Within its metropolitan area is one of the largest population centers in Europe, with over 12 million inhabitants.
+            </p>
+        </div>
+        <div class="cities">
+            <h2>
+                Tokyo
+            </h2>
+            <p>
+                Tokyo is the capital of Japan, the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.
+            </p>
+            <p>
+                It is the seat of the Japanese government and the Imperial Palace, and the home of the Japanese Imperial Family.
+            </p>
+            <p>
+                The Tokyo prefecture is part of the world's most populous metropolitan area with 38 million people and the world's largest urban economy.
+            </p>
+        </div>
+        <hr/>
+        <h4 style="text-align: center;">
+            HTML span 元素是行内元素，能够用作文本的容器,可以对行内文本设置样式属性。
+        </h4>
+        <h1>
+            span示例:
+            <span class="red">
+                重要的
+            </span>
+            标题
+        </h1>
+        <p>
+            <a href="htmlLayout.html" style="text-decoration: none;" title="布局">
+                <b>
+                    html之css制作布局
+                </b>
+            </a>
+        </p>
+        <hr/>
+        <h1 style="text-align: center;font-size: 35px ;color: red">
+            html响应式设计
+        </h1>
+        <h1>
+            W3Schools Demo
+        </h1>
+        <h2>
+            Resize this responsive page!
+        </h2>
+        <br/>
+        <div class="city">
+            <h2>
+                London
+            </h2>
+            <p>
+                London is the capital city of England.
+            </p>
+            <p>
+                It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.
+            </p>
+        </div>
+        <div class="city">
+            <h2>
+                Paris
+            </h2>
+            <p>
+                Paris is the capital and most populous city of France.
+            </p>
+        </div>
+        <div class="city">
+            <h2>
+                Tokyo
+            </h2>
+            <p>
+                Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+and the most populous metropolitan area in the world.
+            </p>
+        </div>
+        <p>
+        </p>
+        <p style="text-align: right;">
+            @vincent
+        </p>
+        <hr/>
+        <h1 style="text-align: center;">
+            Bootstrap响应式设计
+        </h1>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>
+                    W3School Demo
+                </h1>
+                <p>
+                    Resize this responsive page!
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>
+                        London
+                    </h2>
+                    <p>
+                        London is the capital city of England.
+                    </p>
+                    <p>
+                        It is the most populous city in the United Kingdom,
+    with a metropolitan area of over 13 million inhabitants.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h2>
+                        Paris
+                    </h2>
+                    <p>
+                        Paris is the capital and most populous city of France.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h2>
+                        Tokyo
+                    </h2>
+                    <p>
+                        Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+    and the most populous metropolitan area in the world.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <h1 style="text-align: center;font-size: 30px;font-weight: bold;">
+            通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。
+        </h1>
+        <!--
+        框架
+        通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。每份HTML文档称为一个框架，并且每个框架都独立于其他的框架。
+        使用框架的坏处：
+        开发人员必须同时跟踪更多的HTML文档
+        很难打印整张页面
+        重要提示：不能将 <body></body> 标签与 <frameset></frameset> 标签同时使用！不过，假如你添加包含一段文本的 <noframes> 标签，就必须将这段文字嵌套于 <body></body> 标签内。（在下面的第一个实例中，可以查看它是如何实现的。）
+        -->
+        <p style="text-align: center;font-size: 35px;font-weight: bold;">
+            <a href="frame.html" style="text-decoration: none;" title="frame">
+                <b>
+                    通用框架实例
+                </b>
+            </a>
+        </p>
+        <p style="text-align: center;font-size: 35px;font-weight: bold;">
+            iframe 用于在网页内显示网页,下面显示了一个frame网页
+        </p>
+        <!-- <iframe src="URL"></iframe> 语法形式
+        frameborder 是Iframe - 删除边框 为0表示无边框
+        src表示iframe显示的数据源
+        height 高度
+        width 宽度 可以用像素和百分比
+        name表示iframe名字，其他超链接可以连接到这里显示
+         -->
+        <iframe frameborder="0" height="500px" name="Iframe_vin" src="frame.html" width="100%">
+        </iframe>
+        <p style="text-align: center; font-size: 35px;font-weight: bold;">
+            <a href="http://www.baidu.com" target="Iframe_vin" title="百度一下">
+                baidu
+            </a>
+            <b>
+                注释：
+            </b>
+            由于链接的目标匹配 iframe 的名称，所以链接会在 iframe 中打开。
+        </p>
+        <hr/>
+        <h1 style="text-align: center; font-size: 35px;font-weight: bold;">
+            HTML脚本
+        </h1>
+        <!--
+        HTML script 元素
+        <script> 标签用于定义客户端脚本，比如 JavaScript。
+        script 元素既可包含脚本语句，也可通过 src 属性指向外部脚本文件。
+        必需的 type 属性规定脚本的 MIME 类型。
+        JavaScript 最常用于图片操作、表单验证以及内容动态更新。
+        async 属性仅适用于外部脚本（只有在使用 src 属性时）,规定一旦脚本可用将异步执行。
+        charset :规定在外部脚本文件中使用的字符编码。
+
+        -->
+        <p style="text-align: center; font-size: 35px;font-weight: bold;">
+            html内嵌js脚本:
+            <script type="text/javascript">
+                document.write("<h1 style=\"text-align: center; font-size: 35px;font-weight: bold;\">Hello World from html</h1>")
+            </script>
+        </p>
+        <p style="text-align: center; font-size: 35px;font-weight: bold;">
+            网络上js脚本:
+            <script src="http://www.w3school.com.cn/example/html/demo_script_src.js" type="text/javascript">
+            </script>
+        </p>
+        <p style="text-align: center; font-size: 35px;font-weight: bold;">
+            本地和当前html文档处于同一目录下另外文件上js脚本:
+            <script src="App.js" type="text/javascript">
+            </script>
+        </p>
+        <p style="text-align: center; font-size: 35px;font-weight: bold;">
+            本地另外文件夹目录上js脚本:
+            <script src="javascripts/application.js" type="text/javascript">
+            </script>
+        </p>
+        <noscript>
+            Sorry, your browser does not support JavaScript!
+        </noscript>
+        <p>
+            不支持 JavaScript 的浏览器将显示 noscript 元素中的文本。
+        </p>
+        <hr/>
+        <h1 style="text-align: center; font-size: 35px;font-weight: bold;">
+            HTML 头部元素使用示例
+        </h1>
+        <p>
+            "<"head">" 元素是所有头部元素的容器。"<"head">" 内的元素可包含脚本，指示浏览器在何处可以找到样式表，提供元信息，等等。
+        </p>
+        <p>
+            以下标签都可以添加到 head 部分："<"title">"、"<"base">"、"<"link">"、"<"meta">"、"<"script">" 以及 "<"style">"。
+        </p>
+        <h3>
+            "<"head">" 元素内嵌套 title元素 创建html文档标题栏标题
+        </h3>
+        <h3>
+            base元素的 target属性标识了该html文档所有超链接的行为：_blank新标签页，
+            以及为页面上的所有链接规定默认地址或默认目标
+        </h3>
+        <h3>
+            meta元素用于创建文档<
+            <a href="http://www.w3school.com.cn/html/html_head.asp" title="keywords">
+                关键字描述和文档描述文档
+            </a>
+        </h3>
+        <p style="font-size: 25px">
+            meta 元素提供有关页面的元信息（meta-information）
+            <a href="metar.html" title="meta redirction">
+                meta:重定向功能
+            </a>
+        </p>
+        <hr/>
+        <h1>
+            HTML 中的转义字符实体
+        </h1>
+        <p style="text-align: center;">
+            <table class="city">
+                <tr>
+                    <th style="width:20%">
+                        显示结果
+                    </th>
+                    <th style="width:20%">
+                        描述
+                    </th>
+                    <th style="width:30%">
+                        实体名称
+                    </th>
+                    <th style="width:30%">
+                        实体编号
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        空格
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <
+                    </td>
+                    <td>
+                        小于号
+                    </td>
+                    <td>
+                        <
+                    </td>
+                    <td>
+                        <
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        >
+                    </td>
+                    <td>
+                        大于号
+                    </td>
+                    <td>
+                        >
+                    </td>
+                    <td>
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &
+                    </td>
+                    <td>
+                        和号
+                    </td>
+                    <td>
+                        &
+                    </td>
+                    <td>
+                        &
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        "
+                    </td>
+                    <td>
+                        引号
+                    </td>
+                    <td>
+                        "
+                    </td>
+                    <td>
+                        "
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        '
+                    </td>
+                    <td>
+                        撇号
+                    </td>
+                    <td>
+                        &apos; (IE不支持)
+                    </td>
+                    <td>
+                        '
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ￠
+                    </td>
+                    <td>
+                        分（cent）
+                    </td>
+                    <td>
+                        ¢
+                    </td>
+                    <td>
+                        ¢
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        £
+                    </td>
+                    <td>
+                        镑（pound）
+                    </td>
+                    <td>
+                        £
+                    </td>
+                    <td>
+                        £
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ¥
+                    </td>
+                    <td>
+                        元（yen）
+                    </td>
+                    <td>
+                        ¥
+                    </td>
+                    <td>
+                        ¥
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        €
+                    </td>
+                    <td>
+                        欧元（euro）
+                    </td>
+                    <td>
+                        €
+                    </td>
+                    <td>
+                        €
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        §
+                    </td>
+                    <td>
+                        小节
+                    </td>
+                    <td>
+                        §
+                    </td>
+                    <td>
+                        §
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ©
+                    </td>
+                    <td>
+                        版权（copyright）
+                    </td>
+                    <td>
+                        ©
+                    </td>
+                    <td>
+                        ©
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ®
+                    </td>
+                    <td>
+                        注册商标
+                    </td>
+                    <td>
+                        ®
+                    </td>
+                    <td>
+                        ®
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ™
+                    </td>
+                    <td>
+                        商标
+                    </td>
+                    <td>
+                        ™
+                    </td>
+                    <td>
+                        ™
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ×
+                    </td>
+                    <td>
+                        乘号
+                    </td>
+                    <td>
+                        ×
+                    </td>
+                    <td>
+                        ×
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ÷
+                    </td>
+                    <td>
+                        除号
+                    </td>
+                    <td>
+                        ÷
+                    </td>
+                    <td>
+                        ÷
+                    </td>
+                </tr>
+            </table>
+        </p>
+    </body>
+</html>

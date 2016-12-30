@@ -1,0 +1,1 @@
+document.write("This text comes from an Local file script.");

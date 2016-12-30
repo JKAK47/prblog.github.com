@@ -1,0 +1,6 @@
+cayon
+cyan
+magenton
+octave
+ggplot2
+ECharts

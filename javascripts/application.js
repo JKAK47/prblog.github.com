@@ -1,0 +1,1 @@
+document.write("This text comes from an javascripts/application.js file script.");

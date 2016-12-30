@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+            <title>
+                frame
+            </title>
+        </meta>
+    </head>
+    <!--
+        对可见区域按横向分块，比例是：12.5%,12.5%,12.5%,25%,37.5%，这里例子既包含横竖向分块和嵌套，导航
+    -->
+    <frameset border="1" frameborder="yes" framespacing="1" rows="12.5%,12.5%,12.5%,25%,37.5%">
+        <frame noresize="true" src="http://www.w3school.com.cn/example/html/frame_a.html"/>
+        <frame src="http://www.w3school.com.cn/example/html/frame_b.html"/>
+        <frame src="http://www.w3school.com.cn/example/html/frame_c.html"/>
+        <frameset border="1" cols="25%,50%,25%" frameborder="yes">
+            <frame src="frame_a.html"/>
+            <frame src="frame_b.html"/>
+            <frame src="frame_c.html"/>
+        </frameset>
+        <frameset border="1" cols="25%,*" frameborder="yes">
+            <frame src="nav_html_contents.html"/>
+            <!-- 指定下一帧的显示目的区域，name=showframe  -->
+            <frame name="showframe" src="http://www.w3school.com.cn/example/html/frame_a.html"/>
+        </frameset>
+        <!-- 如果你的浏览器不能解析框架就反馈下面的东西-->
+        <noframes>
+            <body>
+                您的浏览器无法处理框架！
+            </body>
+        </noframes>
+    </frameset>
+</html>
