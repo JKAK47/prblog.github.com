@@ -1,0 +1,128 @@
+   html {
+            font-family: "microsoft yahei",arial
+            font-size:100%;
+        }
+            body{
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        /*navigation bar 导航菜单css设置*/
+
+        nav {
+            background-color: #333; /* 导航菜单背景色*/
+        }
+        nav li {
+            display: inline-block;/* 导航菜单list为内联元素，元素间隔100像素*/
+            padding-right: 100px;
+
+        }
+        nav li a {/*导航菜单 a标签的超链接下划线去除，字体颜色为白色，字体大小为1.5em */
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;/*em 表示该元素字体大小相对于父级元素的比例 这里是1.5倍 */
+        }
+        nav li a:hover,#menuIcon:hover {/*导航菜单 设置当鼠标置于a标签上面时候显示的颜色*/
+            color: red;/* 字体颜色*/
+            /*background-color:yellow;  a标签的背景颜色 */
+        }
+        #menuIcon{
+            display: none;
+            font-size: 2em;
+            font-weight:bold;
+            color: white;
+            text-decoration: none;
+            font-family: arial;
+        }
+       /*sidebar*/
+        aside {
+            width: 25%;
+            float: left;
+        }
+        /*post*/
+        .post {
+            width: 70%;
+            margin: 0 auto;
+            float: left;
+        }
+         /*grid layout*/
+        .grid {
+        }
+
+        .grid .item {
+            width: 25%;
+            height: 150px;
+            background-color: blue;
+            display: inline-block;
+        }
+        /*footer*/
+        footer {
+            width: 100%;
+            text-align: center;
+            clear: both;
+        }
+        /* 设置页脚列表为内联元素 */
+        footer li {
+            display: inline-block;
+        }
+        /*
+当屏幕宽度小于500px时，<nav> 里的菜单<ul>标签不显示，同时显示id为menuIcon的菜单图标<a>标签
+        */
+        @media screen and (max-width: 500px) {
+
+            nav ul {
+                display: none;
+                padding: 0;
+                margin: 0 5px;
+            }
+
+            #menuIcon {
+                display: block;
+                text-align: right;
+                padding: 0 5px;
+                border-bottom: 1px #9c9c9c solid;
+            }
+            nav ul li {
+                width: 100%;
+            }
+            nav ul li:hover {
+                background-color: blue;
+            }
+        }
+        /* 当页面宽度小于650px时候侧边栏隐藏，同时正文的浮动去除*/
+        @media only screen and (max-width : 650px) {
+            aside {
+                display: none;
+            }
+
+            .post {
+                width: 100%;
+                float: none;
+                padding: 5px;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+            .grid{
+                width: 100%;
+            }
+            .grid .item{
+                width: 32%;
+            }
+        }
+        /* img 随屏幕大小自动缩放就是指定其最大宽度为100%像这样*/
+        img{
+            max-width:100%;
+        }
+        /*
+            窗口很窄的时候这三个div被挤压得很厉害，
+            所以假设窗口小于420px时，我们让它们各自独立一行，占满整个窗口宽度
+        */
+        @media screen and (max-width: 420px) {
+            .grid .item {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+

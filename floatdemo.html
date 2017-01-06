@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- http://www.cnblogs.com/polk6/archive/2013/07/25/3142187.html#undefined
+-->
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <title>
+            float属性
+        </title>
+        <style type="text/css">
+
+            #a
+        {
+            background-color:Red;
+            height:50px;
+            width:150px;
+        }
+        #b
+        {
+            background-color:Yellow;    
+            height:50px;
+            width:200px;
+        }
+        #c
+        {
+            background-color:Blue;   
+            height:50px;
+            width:300px;
+         }
+         #d
+         {
+            background-color:Gray;
+            height:50px;
+            width:400px;
+         }
+	    .news {
+		  background-color: gray;
+		  border: solid 1px black;
+		  }
+
+		.news img {
+		  float: left;
+		  }
+
+		.news p {
+		  float: right;
+		  }
+		.clear {
+		  	clear: both;
+		  }
+        </style>
+    </head>
+    <body>
+        <div id="a">
+            div-a
+        </div>
+        <div float="left" id="b">
+            div-b
+        </div>
+        <div id="c">
+            div-c
+        </div>
+        <input type="text" value="input1"/>
+        <input float="left" type="text" value="input2"/>
+        <input type="text" value="input3 "/>
+        <div float="left" id="d">
+            div-d
+        </div>
+        <input type="text" value="input4 "/>
+        <!--ref: https://zhidao.baidu.com/question/291720696.html -->
+        <div id="d" style="widht:800px">
+            <div id="a" style="float:left;width:20px">
+                左1
+            </div>
+            <p>
+                div 1
+            </p>
+            <div id="b" style="float:left;width:20px">
+                右1
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div id="d" style="widht:800px">
+            <div id="a" style="float:left;width:20px">
+                左2
+            </div>
+            <p>
+                div 2
+            </p>
+            <div id="b" style="float:right;width:20px">
+                右2
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <!--这个例子加入一个清除的div标签可以达到让包围图片和文本的div标签包含浮动元素 -->
+        <div class="news">
+            <img src="img/java.png"/>
+            <p>
+                some text
+            </p>
+            <div class="clear">
+            </div>
+        </div>
+    </body>
+</html>

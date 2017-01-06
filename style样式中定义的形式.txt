@@ -1,0 +1,15 @@
+style 元素定义css属性中：
+以html元素开始的样式集，说明对这个html元素设置样式集：比如 body {
+margin: 0;//设置body元素的默认边框距为0
+}
+以#xxx开头的样式集和html元素的id属性匹配；
+table.lamp形式表示对table元素指定样式，lamp是table元素在class属性的属性值。
+.xxx表示	定义一个通用的样式集，只要html元素的class属性值填写xxx即可引用
+
+
+
+<a>元素的href 属性值是#xxx形式的话，是跳转到同文档下id为xxx的html元素；属性值为 xxx.html#yyy 是跳转到跟当前文档同目录下另一个xxx.html文档中id为yyy的html元素；
+属性值为 xxx.html  是跳转到跟当前文档同目录下另一个xxx.html文档 
+
+
+
