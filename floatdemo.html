@@ -9,7 +9,6 @@
             float属性
         </title>
         <style type="text/css">
-
             #a
         {
             background-color:Red;
@@ -20,7 +19,7 @@
         {
             background-color:Yellow;    
             height:50px;
-            width:200px;
+            width:280px;
         }
         #c
         {
@@ -32,41 +31,84 @@
          {
             background-color:Gray;
             height:50px;
-            width:400px;
+            width:310px;
          }
-	    .news {
-		  background-color: gray;
-		  border: solid 1px black;
-		  }
-
-		.news img {
-		  float: left;
-		  }
-
-		.news p {
-		  float: right;
-		  }
-		.clear {
-		  	clear: both;
-		  }
+        .news {
+          background-color: blue;
+          border:  10px solid red;/* 设置边框样式为实线(solid)，宽度10像素(10px)，颜色red*/
+          border-style: inset;
+          }
+        .news img {
+          float: left;
+          }
+        .news p {
+          float: right;
+          color: red;
+          }
+        .clear {
+            clear: both;
+          }
         </style>
     </head>
+    <!--
+    浮动层：给元素的float属性赋值后，就是脱离文档流，进行左右浮动，紧贴着父元素(默认为body文本区域)的左右边框。
+    而此浮动元素在文档流空出的位置，由后续的(非浮动)元素填充上去：块级元素直接填充上去，若跟浮动元素的范围发生重叠，浮动元素覆盖块级元素。内联元素：有空隙就插入。
+    -->
     <body>
-        <div id="a">
-            div-a
+        <p>
+            <a href="parseFloat.html" target="_black" title="parseFloat">
+                关于float属性的解析文档
+            </a>
+        </p>
+        <div id="diva">
+            <div id="b" style="float: left;">
+                div-b; float: left ;  div块元素后接a元素
+            </div>
+            <a id="c">
+                div-c
+            </a>
+            <div style="clear: both;">
+            </div>
         </div>
-        <div float="left" id="b">
-            div-b
+        <br/>
+        <div id="main">
+            <div id="a">
+                div-a
+            </div>
+            <div id="b" style="float: left;">
+                div-b; float: left ;覆盖了蓝色div块
+            </div>
+            <div id="c">
+                div-c
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <br/>
+        <p>
+            对覆盖蓝色div块的解决方法是对移动的div块单独放在一个div块中包装起来，同时在最后用一个空的div块 clear:both属性去除浮动对后面html元素的影响
+        </p>
+        <div id="main divb">
+            <div id="b" style="float: left;">
+                div-b; float: left ;未覆盖蓝色div块
+            </div>
+            <div style="clear: both;">
+            </div>
         </div>
         <div id="c">
             div-c
         </div>
-        <input type="text" value="input1"/>
-        <input float="left" type="text" value="input2"/>
-        <input type="text" value="input3 "/>
-        <div float="left" id="d">
-            div-d
+        <br/>
+        <div>
+            <input style="float:left" type="text" value="input2 float:left "/>
+            <div id="d" style="float:left;">
+                div-d; float:left;
+            </div>
+            <div style="clear: both;">
+            </div>
         </div>
+        <input type="text" value="input1"/>
+        <input type="text" value="input3 "/>
         <input type="text" value="input4 "/>
         <!--ref: https://zhidao.baidu.com/question/291720696.html -->
         <div id="d" style="widht:800px">
@@ -82,8 +124,6 @@
         </div>
         <br/>
         <br/>
-        <br/>
-        <br/>
         <div id="d" style="widht:800px">
             <div id="a" style="float:left;width:20px">
                 左2
@@ -97,8 +137,6 @@
         </div>
         <br/>
         <br/>
-        <br/>
-        <br/>
         <!--这个例子加入一个清除的div标签可以达到让包围图片和文本的div标签包含浮动元素 -->
         <div class="news">
             <img src="img/java.png"/>
@@ -108,5 +146,10 @@
             <div class="clear">
             </div>
         </div>
+        <p>
+            <a href="http://www.cnblogs.com/polk6/archive/2013/07/25/3142187.html#undefined" target="_black" title="">
+                参考文献
+            </a>
+        </p>
     </body>
 </html>
