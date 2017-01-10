@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            Made with Remarkable!
+        </title>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+        <style type="text/css">
+            ::selection,a::selection{background:rgba(255,255,0,.3)}a,a::selection{color:#0645ad}hr,img{border:0}a,ins{text-decoration:none}::selection,ins,mark{color:#000}dfn,mark{font-style:italic}hr,ol,p,ul{margin:1em 0}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}hr,pre code,table,table tr{padding:0}pre,pre code{white-space:pre}html{font-size:100%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{color:#444;font-family:Georgia,Palatino,"Palatino Linotype",Times,"Times New Roman",serif;font-size:12px;line-height:1.5em;padding:1em;margin:auto;max-width:42em;background:#fefefe}a:visited{color:#0b0080}a:hover{color:#06e}a:active{color:#faa700}a:focus{outline:dotted thin}a:active,a:hover{outline:0}::-moz-selection{background:rgba(255,255,0,.3);color:#000}a::-moz-selection{background:rgba(255,255,0,.3);color:#0645ad}img{max-width:100%;-ms-interpolation-mode:bicubic;vertical-align:middle}h1,h2,h3,h4,h5,h6{font-weight:400;color:#111;line-height:1em}b,h4,h5,h6,mark,strong,table tr th{font-weight:700}h1{font-size:2.5em}h2{font-size:2em}h3{font-size:1.5em}h4{font-size:1.2em}h5{font-size:1em}h6{font-size:.9em}blockquote{color:#666;margin:0;padding-left:3em;border-left:.5em #EEE solid}hr{display:block;height:2px;border-top:1px solid #aaa;border-bottom:1px solid #eee}code,kbd,pre,samp{color:#000;font-family:monospace,monospace;font-size:.98em}pre{white-space:pre-wrap;word-wrap:break-word}ins{background:#ff9}mark{background:#ff0}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}ol,ul{padding:0 0 0 2em}li p:last-child{margin:0}dd{margin:0 0 0 2em}table{border-collapse:collapse;border-spacing:0}td{vertical-align:top}@media only screen and (min-width:480px){body{font-size:14px}}@media only screen and (min-width:768px){body{font-size:16px}}@media print{blockquote,img,pre,tr{page-break-inside:avoid}*{background:0 0!important;color:#000!important;filter:none!important;-ms-filter:none!important}body{font-size:12pt;max-width:100%}a,a:visited{text-decoration:underline}hr{height:1px;border:0;border-bottom:1px solid #000}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}blockquote,pre{border:1px solid #999;padding-right:1em}img{max-width:100%!important}@page :left{margin:15mm 20mm 15mm 10mm}@page :right{margin:15mm 10mm 15mm 20mm}h2,h3,p{orphans:3;widows:3}h2,h3{page-break-after:avoid}}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;border:none;background:0 0}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+        </style>
+    </head>
+    <body>
+        <h2 id="chapter-1">
+            Chapter 1
+            <a id="chapter-1">
+            </a>
+        </h2>
+        <h1 id="_1">
+            第一个标题
+        </h1>
+        <p>
+            你好
+            <strong>
+                Markdown
+            </strong>
+        </p>
+        <hr/>
+        <h1 id="_2">
+            开始示例
+        </h1>
+        <h2 id="_3">
+            图片
+        </h2>
+        <p>
+            插入图片内联形式，格式
+            <code>
+                ![任何文本或者空](图片链接 title)
+            </code>
+            <br/>
+            <img alt="pic" src="/home/vincent/图片/123.png" title="插入本地绝对路径图片"/>
+            <br/>
+            <img alt="pic" src="beauty.png" title="插入跟当前md文档同一目录下的图片"/>
+            <br/>
+            <img alt="pic" src="../img/dev.jpg" title="插入跟当前md文档不同一目录下本地图片相对路径"/>
+            <br/>
+            <img alt="sdf" src="/home/vincent/PythonDataCourse/prblog.github.com/img/addstage.JPG" title="绝对路径下的图片"/>
+            <br/>
+            插入图片引用形式，在remarkable上不行
+            <br/>
+            引用形式图片：
+            <img alt="pictures" src="https://learn.getgrav.org/content/markdown" title="Markdown syntax"/>
+        </p>
+        <p>
+            <img alt="after" src="/home/vincent/PythonDataCourse/prblog.github.com/img/afteradd.JPG" title="after"/>
+        </p>
+        <hr/>
+        <h2 id="_4">
+            链接
+        </h2>
+        <p>
+            插入链接内联方式
+            <br/>
+            <a href="http://www.baidu.com">
+                百度一下
+            </a>
+            <br/>
+            <a href="CSS教程.md" title="CSS">
+                css
+            </a>
+            <br/>
+            插入链接引用方式，类似于论文的参考文献，只要提供一个id然后后面在写具体的引用资源
+            <br/>
+            这是一个引用的链接
+            <a href="https://learn.getgrav.org/content/markdown" title="Markdown syntax">
+                淘宝
+            </a>
+            到达
+            <a href="https://www.zhihu.com/question/21065229" title="zhihu">
+                天猫
+            </a>
+            <br/>
+            链接锚，链接到本文档的其他标题
+        </p>
+        <ul>
+            <li>
+                <a href="#chapter-1">
+                    Chapter 1
+                </a>
+            </li>
+            <li>
+                <a href="#chapter-2">
+                    Chapter 2
+                </a>
+            </li>
+            <li>
+                <a href="#chapter-3">
+                    Chapter 3
+                </a>
+            </li>
+        </ul>
+        <p>
+            类似于html中hr元素，横线
+        </p>
+        <hr/>
+        <hr/>
+        <hr/>
+        <h2 id="_5">
+            标题
+        </h2>
+        <h3 id="_6">
+            第一种形式
+        </h3>
+        <h1 id="_7">
+            一级标题，带下横线
+        </h1>
+        <h2 id="_8">
+            二级标题，带下横线
+        </h2>
+        <h3 id="_9">
+            三级标题
+        </h3>
+        <h4 id="_10">
+            四级标题
+        </h4>
+        <h4 id="_11">
+            实力的
+        </h4>
+        <h5 id="_12">
+            五级标题
+        </h5>
+        <h6 id="_13">
+            六级标题
+        </h6>
+        <h3 id="_14">
+            标题第二种形式
+        </h3>
+        <h1 id="_15">
+            第一级标题
+        </h1>
+        <h2 id="_16">
+            第二级标题
+        </h2>
+        <h3 id="_17">
+            引用中加标题
+        </h3>
+        <blockquote>
+            <h2 id="_24">
+                引用标题
+            </h2>
+        </blockquote>
+        <hr/>
+        <h2 id="chapter-2">
+            Chapter 2
+            <a id="chapter-2">
+            </a>
+        </h2>
+        <h2 id="_18">
+            短语增强
+        </h2>
+        <p>
+            <strong>
+                加粗
+            </strong>
+            <br/>
+            <strong>
+                加粗的另一种形式
+            </strong>
+            <br/>
+            <em>
+                斜体
+            </em>
+            <br/>
+            <em>
+                斜体
+            </em>
+        </p>
+        <p>
+            <strong>
+                <em>
+                    加粗并斜体
+                </em>
+            </strong>
+            <br/>
+            <strong>
+                <em>
+                    加粗并斜体另一种形式
+                </em>
+            </strong>
+            <br/>
+            <del>
+                删除线
+            </del>
+        </p>
+        <p>
+            加入反斜杠用于输入一些转义后的字符
+            <br/>
+            下面这个使得*号不是作为斜体的标记而是作为文本的一部分
+            <br/>
+            *literal asterisks*
+        </p>
+        <p>
+            Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
+        </p>
+        <p>
+            \   反斜线
+            <br/>
+            `   反引号
+            <br/>
+            *   星号
+            <br/>
+            _   底线
+            <br/>
+            {}  花括号
+            <br/>
+            []  方括号
+            <br/>
+            ()  括弧
+            <br/>
+            #   井字号
+            <br/>
+            +   加号
+            <br/>
+            -   减号
+            <br/>
+            .   英文句点
+            <br/>
+            !   惊叹号
+        </p>
+        <hr/>
+        <h2 id="list">
+            List
+        </h2>
+        <p>
+            这是无序列表，文字开头添加(
+            <em>
+                , +,-)但是要注意在(
+            </em>
+            , +, and -)和文字之间需要添加空格
+        </p>
+        <ul>
+            <li>
+                中国
+            </li>
+            <li>
+                美国
+            </li>
+            <li>
+                <p>
+                    日本
+                </p>
+            </li>
+            <li>
+                <p>
+                    我是广东工业大学学生计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院
+                    <br/>
+                    计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院计算机学院
+                    <br/>
+                    计算机学院计算机学院计算机学院
+                </p>
+            </li>
+            <li>
+                中国中国
+                <br/>
+                中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国
+                <br/>
+                中国中国中国中国
+                <br/>
+                中国中国中国
+            </li>
+            <li>
+                广州市
+            </li>
+        </ul>
+        <p>
+            这是有序列表,使用数字后面跟上句号。（数字点号和正文之间有空格）
+        </p>
+        <ol>
+            <li>
+                XXX
+            </li>
+            <li>
+                YYY
+            </li>
+            <li>
+                ZZZ
+            </li>
+            <li>
+                666
+            </li>
+        </ol>
+        <p>
+            <mark>
+                高亮
+            </mark>
+            <br/>
+            <mark>
+                JAVA  C
+            </mark>
+            <br/>
+            <sub>
+                下标字
+            </sub>
+            <br/>
+            <del>
+                上标字
+            </del>
+        </p>
+        <blockquote>
+            <p>
+                块级引用，的实力开发空间里都是靠家里都是空房间数量多客服即可实力的开发经理速度快解放了山东会计法律考试的解放了空间看收到了快放假了山东快放假了圣诞节饭老师的咖啡机拉斯卡登记法拉克的解放了开机费啦；时间；大奖哦诶接哦我看实力的飞机来说都放假了圣诞节福利刷卡的缴费。
+                <br/>
+                收到了疯狂送到家里疯狂的世界里看见对方。
+                <br/>
+                卢萨卡多俊福绿索多阔府君率扩多菌率扩缩君奥率扩军多副卡所虑多扩军法率索多扩军法率索多阔佬而吴我肉肉IE具法律都是
+                <br/>
+                来说都几点上课积分
+                <br/>
+                实力的开发交流大神发空间
+            </p>
+            <p>
+                这是一个块级引用,xiam
+                <br/>
+                上的浪费空间的
+            </p>
+        </blockquote>
+        <p>
+            简单数学表达式：
+            <mathjax>
+                $x^2+y^2=z^2$
+            </mathjax>
+            <br/>
+            复杂数学表达式：
+            <mathjax>
+                $$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+            </mathjax>
+        </p>
+        <hr/>
+        <h2 id="chapter-3">
+            Chapter 3
+            <a id="chapter-3">
+            </a>
+        </h2>
+        <h2 id="_19">
+            代码
+        </h2>
+        <p>
+            代码，通过一个tab或者四个space键
+        </p>
+        <pre><code>public class Demo{
+    public static void main(String[] args){
+        System.out.println("Hello World");
+    }
+}
+//java代码
+</code></pre>
+        <p>
+            单行代码通过符号`
+        </p>
+        <p>
+            <code>
+                单行的代码示例: int a=89;
+            </code>
+        </p>
+        <p>
+            多行代码(块代码)通过符号```
+        </p>
+        <pre><code>多行代码
+public class Demo{
+        public static void main(String[] args){
+            System.out.println("Hello World");
+        }
+    }
+    //java代码
+</code></pre>
+        <p>
+            多行代码同时语法高亮,语法形式```js
+        </p>
+        <pre><code class="java">
+public  class Demo{
+
+    public static void main(String[] args){
+        System.out.println("sdfsdf");
+    }
+}
+</code></pre>
+        <p>
+            python代码
+        </p>
+        <pre><code class="python">
+def fun():
+    i=5
+    j=7
+    z=i+j
+    return z
+fun() 
+</code></pre>
+        <p>
+            使用tab键输入code
+        </p>
+        <pre><code>#include<stdio.h>
+int main(char* argv, int argc){
+    println("Hello World");
+}
+</stdio.h></code></pre>
+        <p>
+            代码示例：
+        </p>
+        <blockquote>
+            <p>
+                代码示例
+            </p>
+        </blockquote>
+        <pre><code>int main(char * argv, int argc){
+    println("sdflsdkjflsdjk");
+}
+</code></pre>
+        <hr/>
+        <h2 id="_20">
+            脚注
+        </h2>
+        <p>
+            脚注
+            <br/>
+            hello
+            <sup id="fnref:hello">
+                <a class="footnote-ref" href="#fn:hello" rel="footnote">
+                    1
+                </a>
+            </sup>
+        </p>
+        <hr/>
+        <h2 id="_21">
+            表格
+        </h2>
+        <h3 id="_22">
+            表格左对齐
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        手机厂商
+                    </th>
+                    <th>
+                        市场排名
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        huawei
+                    </td>
+                    <td>
+                        35%
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        xiaomi
+                    </td>
+                    <td>
+                        25%
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        vivo
+                    </td>
+                    <td>
+                        15%
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Apple
+                    </td>
+                    <td>
+                        2%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="_23">
+            表格右对齐
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th align="right">
+                        手机厂商
+                    </th>
+                    <th align="right">
+                        市场排名
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="right">
+                        huawei
+                    </td>
+                    <td align="right">
+                        35%
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        xiaomi
+                    </td>
+                    <td align="right">
+                        25%
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        vivo
+                    </td>
+                    <td align="right">
+                        15%
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        Apple
+                    </td>
+                    <td align="right">
+                        2%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <h2 id="blockquote">
+            引用标签blockquote
+        </h2>
+        <p>
+        </p>
+        <blockquote>
+            <br/>
+            <p>
+                For example.
+            </p>
+            <br/>
+        </blockquote>
+        <p>
+        </p>
+        <table>
+            <br/>
+            <tr>
+                <br/>
+                <td>
+                    Foo
+                </td>
+                <br/>
+                <td>
+                    表格元素
+                </td>
+                <br/>
+            </tr>
+            <br/>
+        </table>
+        <hr/>
+        <h2 id="html">
+            直接使用html标签
+        </h2>
+        <p>
+            使用html的a标签，实验是直接使用a标签不行的
+        </p>
+        <p>
+            <a href='http://href="http://www.baidu.com'>
+                href="http://www.baidu.com
+            </a>
+            ">baidu
+            <br/>
+        </p>
+        <div id="090">
+        </div>
+        <hr/>
+        <p>
+            参考文献：
+            <br/>
+            <a href="https://learn.getgrav.org/content/markdown" title="Markdown syntax">
+                Markdown syntax
+            </a>
+            <br/>
+            <a href="https://www.zhihu.com/question/21065229" title="zhihu">
+                知乎
+            </a>
+            <br/>
+            <a href="http://wowubuntu.com/markdown/#overview" title="Markdown 语法简体说明">
+                Markdown 语法说明
+            </a>
+            <br/>
+            <a href="http://daringfireball.net/projects/markdown/syntax" title="Markdown 官方文档">
+                Markdown office website
+            </a>
+        </p>
+        <p>
+            星期一, 09. 一月 2017 09:46下午
+        </p>
+        <div class="footnote">
+            <hr/>
+            <ol>
+                <li id="fn:hello">
+                    <p>
+                        hl
+                        <a class="footnote-backref" href="#fnref:hello" rev="footnote" title="Jump back to footnote 1 in the text">
+                            ↩
+                        </a>
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </body>
+</html>

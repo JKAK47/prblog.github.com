@@ -1,0 +1,82 @@
+<!--
+ 模拟在head的js代码操作body中的html元素
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form Fields Example</title>
+    <script type="text/javascript">
+        var form = document.getElementById("myForm");
+        console.log(form.elements['color'].length);
+    </script>
+</head>
+<body>
+    <form method="post"  id="myForm">
+        <ul>
+            <li><input type="radio" name="color" value="red">Red</li>
+            <li><input type="radio" name="color" value="green">Green</li>
+            <li><input type="radio" name="color" value="blue">Blue</li>
+        </ul>
+    </form>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<!-- 模拟script代码在head头部和body末尾中分别的效果 ;
+
+
+    http://www.cnblogs.com/liaidai/p/5292277.html
+结论：如果js代码中必须要查询html元素并操作之，那么必须要在html页面显示出来之后才可以去查找，所以必须在body元素默认才能确认这个html页面加载完成了。html是从文档上到下进行加载的，遇到使用连接方式加载的js或者css就发送request请求加载，如果是直接写的代码，那么就直接初始化，如果是函数那么就直接初始化，在触发时直接执行函数，如果在head中操作body中的元素，那么就会出现找不到的情况，因为此时body中的元素还没有加载完成。
+-->
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script>
+            console.log(111);  //111  
+            var colors1 = document.getElementsByName("color");
+            console.log('--------1----------'+colors1.length);//--------1----------0
+            var form1 = document.getElementById("myForm");
+            console.log('-----1-------------'+form1);//-----1-------------null
+            var sizeRadio1 = document.getElementsByName("size");
+            console.log('-----size1------'+sizeRadio1.length);//-----size1------0
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li>
+                <input name="size" type="radio" value="1"/>
+                <input name="size" type="radio" value="2"/>
+                <input name="size" type="radio" value="3"/>
+                <input name="size" type="radio" value="4"/>
+            </li>
+        </ul>
+        <form id="myForm" method="post">
+            <ul>
+                <li>
+                    <input name="color" type="radio" value="red">
+                        Red
+                    </input>
+                </li>
+                <li>
+                    <input name="color" type="radio" value="green">
+                        Green
+                    </input>
+                </li>
+                <li>
+                    <input name="color" type="radio" value="blue">
+                        Blue
+                    </input>
+                </li>
+            </ul>
+        </form>
+    </body>
+    <script>
+        console.log(222);  
+            var colors2 = document.getElementsByName("color");
+            console.log('-------2----------'+colors2.length);//-------2----------3
+             var form2 = document.getElementById("myForm");
+            console.log('------------form2----------------------'+form2.elements.length);//------------form2----------------------3
+            var sizeRadio2 = document.getElementsByName("size");
+            console.log('-----size2------'+sizeRadio2.length);//-----size2------4
+    </script>
+</html>
