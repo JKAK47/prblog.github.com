@@ -182,7 +182,7 @@
                         </img>
                         <p>
                             <b>
-                                git reset命令可以使用每次commit id进行回退或者到我删除的版本；语法形式 git reset --hard commit id号。比如
+                                git reset --hard命令可以使用每次commit id进行回退或者到我删除的版本；语法形式 git reset --hard commit id号。比如
                             </b>
                             <pre> git reset --hard d0dab8b 这个id号不用全写只要写5 6位即可，下面这幅图是先回退到第一次提交版本后有回到最新的版本</pre>
                             <img alt="回退到第一次提交版本后有会高新版本" src="img/gitresettoback.jpg">
@@ -195,7 +195,7 @@
                         </br>
                         <img alt="文件从稳定区到不稳定区" src="img/gitstagetounstage.jpg">
                         </img>
-                        <p>对于已经提交到本地版本库跟踪的文件现在提示只有两个命令可用，第一将文件更改通过add命令提交到暂存区，第二通过git checkout -- &lt; file &gt;... 命令丢弃所有更改以取得和本地git仓库记录的一致（要慎用）。如果是原来没有被跟踪的新文件通过add命令将文件提交到暂存区(稳定区),然后通过git reset head  &lt;file &gt; 命令退回到工作区(不稳定区) ，只有一种提示：通过add命令提交到暂存区。 </p><br/>
+                        <p>对于已经提交到本地版本库跟踪的文件，现在对修改退回到工作区提示只有两个命令可用，第一将文件更改通过add命令提交到暂存区，第二通过git checkout -- &lt; file &gt;... 命令丢弃所有更改以取得和本地git仓库记录的一致（要慎用），这个命令是对处于版本库文件修改处于工作区的去除修改的命令，一旦执行这个命令所有自上次commit之后所有修改都会消失。如果是原来没有被跟踪的新文件通过add命令将文件提交到暂存区(稳定区),然后通过git reset head  &lt;file &gt; 命令退回到工作区(不稳定区) ，只有一种提示：通过add命令提交到暂存区。 </p><br/>
                         <<img src="img/addtrackandcommit.JPG" alt="addtrackandcommit">
                     </p>
                 </p>
