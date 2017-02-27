@@ -306,7 +306,7 @@
                         说明第二次修改还处于工作目录区，没有在stage区
                         <br/>
                         <b>
-                            注意：现在是一个修改在stage区，一个修改在工作目录区
+                            注意：现在是一个修改提交到了stage区，后一个修改还在工作目录区等待add到stage区
                         </b>
                     </p>
                 </p>
@@ -320,7 +320,7 @@
                 </p>
             </p>
             <h3 class="displayh3">
-                现在，你又理解了Git是如何跟踪修改的，每次修改如果不add到暂存区，那就不会加入到commit中
+                现在你理解了Git是如何跟踪修改的，每次修改如果不通过add命令提交到暂存区，那么通过commit命令操作也不会将所有修改提交到本地版本控制系统中。
             </h3>
         </div>
         <h2 class="displayh2">
@@ -341,7 +341,7 @@
                                 你可以手动删掉源文档最后一行，把文件恢复到错误之前的状态
                             </li>
                             <li>
-                                git checkout -- file1,file2...命令丢去在工作区的更改(示例： git checkout -- note.txt)
+                                git checkout -- file1,file2...命令丢去在工作区的更改(示例： git checkout -- note.txt)；这种情况只适合文件被版本控制系统跟踪的情况下。
                             </li>
                         </ul>
                         <br/>
