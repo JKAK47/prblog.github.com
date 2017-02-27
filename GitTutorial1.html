@@ -56,6 +56,11 @@
             	font-size: 18px;
             	font-weight: bold;
             }
+            .anchor{
+                font-size: 25px;
+                color: red;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -173,7 +178,7 @@
                     <br/>
                     <p>
                         利用git log 可以查看你所有的提交记录,那么可以利用这个信息
-                        <a id="version" name="version">
+                        <a id="version" name="version" class="anchor"> <!--  定义一个锚点 -->
                             版本回退
                         </a>
                         ，在git中后悔药是git reset命令，比如回退到上个commit版本；语法形式：git reset --hard HEAD^^^ 其中多少个^表示回退到第几个版本，只有一个^表示回退到上一个版本，也就是上一个提交版本；head表示当前版本
@@ -354,11 +359,11 @@
                         <br/>
                         这种情况下：
                         <br/>
-                        git checkout -- file1...命令( git checkout -- note.txt)只能撤销最近add操作之后对文件在工作区的更改，工作目录回到暂存区的状态
+                        git checkout -- file1...命令( git checkout -- note.txt)只能撤销最近add操作之后对文件在工作区的更改，工作目录区回到暂存区的状态。（把工作区的修改撤销）
                         <br/>
-                        git reset HEAD file... 命令(git reset head note.txt)只能将文件在stage区中的修改回退到工作区中，和原来工作区的修改合并成一个更大的修改；该暂存区回到自上次commit后的状态，工作目录去有了更多的修改（暂存区的修改也退回过来了）。
+                        git reset HEAD file... 命令(git reset head note.txt)只能将文件在stage区中的修改回退到工作区中，和原来工作区的修改合并成一个更大的修改；该暂存区回到自上次commit后的状态，工作目录区有了更多的修改（暂存区的修改退回过来了）。（把暂存区的修改撤销，回到工作区待修正）
                         <br/>
-                        总之，就是让这个文件回到最近一次git add操作之后或之前的状态。
+                        
                         <p>
                             git checkout -- file命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令，我们在后面的分支管理中会再次遇到git checkout命令。
                         </p>
