@@ -133,9 +133,11 @@
                     参考git add
                 </a>
                 <br/>
-                <pre>git add . 将本地文件提交到暂存区，在这里的文件还可以reset删除提交。</pre>
+                <pre>git add . 将本地文件提交到暂存区，在暂存区的文件还可以reset删除提交。</pre>
                 <pre>git status 再看下状态,可以看到是把三个文件添加到暂存区</pre>
                 <img alt="git status" src="img/gitadd.jpg"/>
+                <<br/>
+                <<img src="img/gitaddreset.jpg" alt="另外一张图">
                 <pre>git commit -m "First commit Git" 就完全把暂存区的文件提交到Git仓库了，同时通过git status 命令查看到当前暂存区是空白的也就是说明没有新的文件没有被跟踪。</pre>
                 <img alt="git commit" src="img/gitcommit.jpg">
                 </img>
@@ -144,7 +146,7 @@
                 <b>
                     第三步 ：
                 </b>
-                加入我对任何一个文件进行更改，比如note.txt.更改完之后同样用git status 命令就报文件被更改。然后通过git diff note.txt命令检查具体什么被更改了。
+                假如我对任何一个文件进行更改，比如note.txt.更改完之后同样用git status 命令就报文件被更改。然后通过git diff note.txt命令检查具体什么被更改了。
                 <pre>git status 这个命令随时让你掌握当前git系统处于什么状态</pre>
                 <pre>git diff note.txt 这个命令让你明白更改了什么</pre>
                 <img alt="git diff" src="img/gitdiff.jpg"/>
@@ -188,11 +190,13 @@
                         </p>
                     </p>
                     <p>
-                        如果文件还在暂存区想撤销add操作，可以使用git reset head file 这个文件将从暂存区（暂存区也叫稳定区）退出，回到不稳定区
-                        <b>
-                        </b>
+                        如果文件修改后从工作目录区add命令提交到了暂存区想撤销add操作，可以使用git reset head  &lt;file &gt; 命令将这个文件将从暂存区（暂存区也叫稳定区）退出，回到不稳定区；但是所有的更改还是存在的。
+                        <br>
+                        </br>
                         <img alt="文件从稳定区到不稳定区" src="img/gitstagetounstage.jpg">
                         </img>
+                        <p>对于已经提交到本地版本库跟踪的文件现在提示只有两个命令可用，第一将文件更改通过add命令提交到暂存区，第二通过git checkout -- &lt; file &gt;... 命令丢弃所有更改以取得和本地git仓库记录的一致（要慎用）。如果是原来没有被跟踪的新文件通过add命令将文件提交到暂存区(稳定区),然后通过git reset head  &lt;file &gt; 命令退回到工作区(不稳定区) ，只有一种提示：通过add命令提交到暂存区。 </p><br/>
+                        <<img src="img/addtrackandcommit.JPG" alt="addtrackandcommit">
                     </p>
                 </p>
             </p>
