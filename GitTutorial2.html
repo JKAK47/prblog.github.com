@@ -97,10 +97,10 @@
                         </li>
                         <li>
                             git checkout –b newname master
-                            <pre>命令将上面两个命令功能合并：在master分支上创建新分支newname分支并切换到该分支</pre>
+                            <pre>该命令将上面两个命令功能合并：在master分支上创建新分支newname分支并切换到该分支</pre>
                         </li>
                     </ul>
-                    <pre>git checkout -b dev 创建dev分支并切换到dev分支</pre>
+                    <pre>git checkout -b dev 在当前分支下创建dev分支并切换到dev分支</pre>
                     git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
                     <br/>
                     <pre>$ git branch dev 创建dev分支</pre>
@@ -125,7 +125,7 @@
                     现在，我们把dev分支的工作成果合并到master分支,git merge命令用于将指定分支合并到当前分支。合并后，再查看readme.txt的内容，就可以看到，和dev分支的最新提交是完全一样的。注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。当然，也不是每次合并都能Fast-forward，我们后面会讲其他方式的合并。使用的命令如下图：
                     <br/>
                     <pre> git checkout master 切换到master分支</pre>
-                    <pre>git merge dev 合并dev分支内容到当前master分支</pre>
+                    <pre>git merge dev 合并dev分支内容到当前master分支；合并命令：需要合并dev分支内容，到另外一个分支（master分支），则必须先切换到master分支然后合并dev分支内容。</pre>
                     <pre> git branch -d dev 删除dev分支( git branch -D dev 强制删除dev分支)</pre>
                     <pre> git branch 查看当前分支</pre>
                     <img alt="merge" src="img/merge.jpg"/>
@@ -134,7 +134,7 @@
                     <p style="font-weight: bold;">
                         小结
                     </p>
-                    <pre>Git鼓励大量使用分支： </pre>
+                    <pre>Git鼓励大量使用分支： 主要有创建，删除，切换，合并等功能。</pre>
                     <pre>查看分支：git branch</pre>
                     <pre>创建分支：git branch name</pre>
                     <pre>切换分支：git checkout name</pre>
@@ -154,7 +154,7 @@
                 </b>
                 <ul>
                     <li>
-                        第一种情况：当本地git仓库两个分支分别对同一文件做了修改会产生冲突,两条分支对同一个文件进行了修改，当一个分支试图合并到另一个分支时，Git不能自动合并的，称之为冲突(conflict)。解决冲突需要人工处理。
+                        第一种情况：当本地git仓库两个分支分别对同一文件做了修改会产生冲突,两条分支对同一个文件进行了修改，当一个分支修改试图合并到另一个分支时，Git不能自动合并的，称之为冲突(conflict)。解决冲突需要人工处理。
                     </li>
                     <li>
                         第二种冲突情况发生在远程git仓库中的A文件被小A更改并push到远程git仓库，我现在想推送到远程git仓库就不行了;因为你的小伙伴A的最新提交和你试图推送的提交有冲突解决办法: Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地git仓库合并解决冲突，再push到远程git仓储中：
