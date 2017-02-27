@@ -354,9 +354,9 @@
                         <br/>
                         这种情况下：
                         <br/>
-                        git checkout -- file1...命令( git checkout -- note.txt)只能撤销最近add操作之后对文件在工作区的更改，回到暂存区的状态
+                        git checkout -- file1...命令( git checkout -- note.txt)只能撤销最近add操作之后对文件在工作区的更改，工作目录回到暂存区的状态
                         <br/>
-                        git reset HEAD file... 命令(git reset head note.txt)只能将文件在stage区中的修改回退到工作区中，和原来工作区的修改处于同一个区域
+                        git reset HEAD file... 命令(git reset head note.txt)只能将文件在stage区中的修改回退到工作区中，和原来工作区的修改合并成一个更大的修改；该暂存区回到自上次commit后的状态，工作目录去有了更多的修改（暂存区的修改也退回过来了）。
                         <br/>
                         总之，就是让这个文件回到最近一次git add操作之后或之前的状态。
                         <p>
