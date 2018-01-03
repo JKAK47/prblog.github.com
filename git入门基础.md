@@ -6,15 +6,16 @@
 	- git init 初始化一个本地化git仓库
 
 #Git基本命令：
-- git add ,
-- git commit ,
-- git reset --hard  ,
-- git checkout -,
-- git status , 
-- git revert, 
-- git rm ,
-- git mv,
-- git diff
+- `git add <file....>`       将工作区文件添加到暂存区域
+- `git commit -m "xxxxx"`    将暂存区域文件添加到本地git仓库
+- `git reset --hard HEAD^`   将某一次git commit提交的所有修改回退
+- `git checkout -b xxx `     新建xxx分支并切换到xxx分支
+- `git checkout xxx `        切换到xxx分支，必须保证xxx分支存在
+- `git status `              查看当前git仓库情况
+- `git revert` 
+- `git rm `
+- `git mv`
+- `git diff`
 区分 下面三个命令区别用法：
 git checkout , git reset, git revert命令区别
 #分支管理
