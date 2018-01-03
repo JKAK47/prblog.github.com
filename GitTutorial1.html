@@ -178,7 +178,7 @@
                     <br/>
                     <h2>版本回退
                     </h2>
-                    <h3>从本地git仓库的修改回退到暂存区  >>> git reset --hard HEAD^^^</h3>
+                    <h3>从本地git仓库的修改回退到暂存区；也就是将某一次git commit提交的所有修改回退。  >>> git reset --hard HEAD^^^</h3>
                     <p>
                         利用git log 可以查看你所有的提交记录,那么可以利用这个信息
                         <a id="version" name="version" class="anchor"> <!--  定义一个锚点 -->
@@ -197,20 +197,22 @@
                             </img>
                         </p>
                     </p>
-                    <h2>从暂存区回退到工作目录区 >>    git reset head  &lt;file&gt; </h2>
+                    <h2>文件已经在git本地仓库，对文件进行了修改后从暂存区回退到工作目录区 >>    git reset head  &lt;file&gt; </h2>
                     <p>
                         如果文件修改后从工作目录区add命令提交到了暂存区想撤销add操作，可以使用git reset head  &lt;file &gt; 命令将这个文件将从暂存区（暂存区也叫稳定区）退出，回到工作目录区；但是所有的更改还是存在的。
                         <br>
                         </br>
                         <img alt="文件从稳定区到工作目录区" src="img/gitstagetounstage.jpg">
                         </img>
-                        <h2>将工作区自上次add操作后的修改撤销  >> git  checkout 命令</h2>
+                        <h2>文件已add,commit提交到在git仓库，然后再将工作区域的文件修改，现在需要撤销工作区域文件的修改  >> git  checkout 命令</h2>
                         <p>对于文件已经提交到本地版本库跟踪的文件，然后对他修改没有进行add操作。现在对这个修改只有两个命令可用，第一将文件更改通过add命令提交到暂存区进而commit，第二是如果你对这个修改不满意。可以通过git checkout -- &lt; file &gt;... 命令丢弃所有更改以取得和本地git仓库记录的一致（要慎用），这个命令是对处于版本库跟踪下文件，在工作区进行了修改，然后撤销我工作区修改的一个命令。一旦执行这个命令将所有自上次add操作之后所有修改都会消失，但是上次add操作提交到stage区的操作还是存在。如果是原来没有被跟踪的新文件通过add命令将文件提交到暂存区(稳定区),然后通过git reset head  &lt;file &gt; 命令退回到工作区(不稳定区) ，只有一种提示：通过add命令提交到暂存区。 </p>
                         <br/>
-                        <img src="img/addtrackandcommit.JPG" alt="addtrackandcommit"><br/>
+                        <img src="img/addtrackandcommit.JPG" alt="addtrackandcommit"/><br/>
                         <p>示例：该命令会不提醒确认直接将工作区的所有更改(未add 操作)直接铲除</p>
-                        <img src="img/git-check.jpg" alt="git checkout">
+                        <img src="img/git-check.jpg" alt="git checkout"/>
                     </p>
+                    <h2>文件以前没有add 到缓冲区，第一次进行add 操作添加到缓存区域。add操作后我想把文件从缓存区域退回到工作区域</h2>
+                        <img src="img/gitrm.jpg" alt="文件从缓存区回退到工作目录区，相当于退出git 仓库管理。" />
                 </p>
             </p>
         </div>
